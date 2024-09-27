@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Basic Setup">
-      <change beforePath="$PROJECT_DIR$/appointment-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/nx.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/nx.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/tsconfig.base.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/tsconfig.base.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,9 +55,37 @@
     "npm.start:ui.executor": "Run",
     "ts.external.directory.path": "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "dev.nx.console.project_details_files": [
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/project.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/package.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/webpack.config.js",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/eslint.config.js",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/client/project.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/client/package.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/client/eslint.config.js",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/project.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/package.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/eslint.config.js",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service-e2e/project.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service-e2e/package.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service-e2e/eslint.config.js",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/shared/project.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/shared/package.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/shared/eslint.config.js"
+    ]
   }
 }]]></component>
   <component name="RunManager" selected="npm.start:api">
+    <configuration name="service:serve:development" type="NxRunConfigurationType">
+      <option name="nx-projects" value="service" />
+      <option name="nx-targets" value="serve" />
+      <option name="nx-target-configuration" value="development" />
+      <envs />
+      <option name="arguments" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="start:api" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/appointment-app/package.json" />
       <command value="run" />
@@ -99,6 +130,7 @@
       <updated>1727469956260</updated>
       <workItem from="1727469957585" duration="1820000" />
       <workItem from="1727471782703" duration="830000" />
+      <workItem from="1727474393565" duration="1899000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Setup">
       <option name="closed" value="true" />
