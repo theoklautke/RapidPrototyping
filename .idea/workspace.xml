@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="" />
+    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Basic Setup">
+      <change beforePath="$PROJECT_DIR$/appointment-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/main.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +40,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -44,22 +49,14 @@
     "nodejs_package_manager_path": "npm",
     "npm.start:api (1).executor": "Run",
     "npm.start:api.executor": "Run",
+    "npm.start:ui.executor": "Run",
+    "ts.external.directory.path": "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="npm.start:ui">
-    <configuration name="start:api (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/appointment-app/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start:api" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.start:api">
     <configuration name="start:api" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/appointment-service/package.json" />
+      <package-json value="$PROJECT_DIR$/appointment-app/package.json" />
       <command value="run" />
       <scripts>
         <script value="start:api" />
@@ -80,9 +77,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start:ui" />
-        <item itemvalue="npm.start:api (1)" />
         <item itemvalue="npm.start:api" />
+        <item itemvalue="npm.start:ui" />
       </list>
     </recent_temporary>
   </component>
@@ -102,11 +98,24 @@
       <option name="presentableId" value="Default" />
       <updated>1727469956260</updated>
       <workItem from="1727469957585" duration="1820000" />
-      <workItem from="1727471782703" duration="592000" />
+      <workItem from="1727471782703" duration="830000" />
     </task>
+    <task id="LOCAL-00001" summary="Basic Setup">
+      <option name="closed" value="true" />
+      <created>1727472444143</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1727472444143</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Basic Setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic Setup" />
   </component>
 </project>
