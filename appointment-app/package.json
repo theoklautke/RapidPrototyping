@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:api": "nx run service:serve:development",
+    "start:api": "docker-compose up -d && nx run service:serve:development",
     "start:ui": "nx run client:serve"
   },
   "private": true,
