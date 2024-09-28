@@ -1,14 +1,14 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# Siehe http://help.github.com/ignore-files/ für weitere Informationen zu ignorierten Dateien.
 
-# compiled output
+# Kompilierte Ausgaben
 dist
 tmp
 /out-tsc
 
-# dependencies
-node_modules
+# Abhängigkeiten
+**/node_modules
 
-# IDEs and editors
+# IDEs und Editoren
 /.idea
 .project
 .classpath
@@ -24,7 +24,7 @@ node_modules
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# misc
+# Sonstiges
 /.sass-cache
 /connect.lock
 /coverage
@@ -34,7 +34,7 @@ yarn-error.log
 testem.log
 /typings
 
-# System Files
+# Systemdateien
 .DS_Store
 Thumbs.db
 
