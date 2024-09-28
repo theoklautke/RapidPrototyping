@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added get all controller">
-      <change afterPath="$PROJECT_DIR$/appointment-app/docker-compose.yml" afterDir="false" />
+    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added postgres db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/init.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +146,7 @@
       <updated>1727469956260</updated>
       <workItem from="1727469957585" duration="1820000" />
       <workItem from="1727471782703" duration="830000" />
-      <workItem from="1727474393565" duration="3058000" />
+      <workItem from="1727474393565" duration="8293000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Setup">
       <option name="closed" value="true" />
@@ -160,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727476342546</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added postgres db">
+      <option name="closed" value="true" />
+      <created>1727477737767</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727477737767</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +181,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Basic Setup" />
     <MESSAGE value="Added get all controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added get all controller" />
+    <MESSAGE value="Added postgres db" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added postgres db" />
   </component>
 </project>
