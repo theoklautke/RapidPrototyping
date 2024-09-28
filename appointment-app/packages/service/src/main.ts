@@ -20,7 +20,7 @@ async function bootstrap() {
       .setTitle('Appointment Application')
       .setDescription('An Application for doing appointments')
       .setVersion('1.0')
-      .addServer(`http://localhost:${port}`)  // Füge die Basis-URL für Swagger hinzu
+      .addServer(`http://localhost:${port}`)
       .build();
 
   const document = SwaggerModule.createDocument(app, config);

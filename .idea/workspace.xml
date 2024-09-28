@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added postgres db">
+    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added .gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/init.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.seeder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.seeder.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +146,7 @@
       <updated>1727469956260</updated>
       <workItem from="1727469957585" duration="1820000" />
       <workItem from="1727471782703" duration="830000" />
-      <workItem from="1727474393565" duration="8293000" />
+      <workItem from="1727474393565" duration="9999000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Setup">
       <option name="closed" value="true" />
@@ -172,7 +172,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727477737767</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added database and typeORM with seeder">
+      <option name="closed" value="true" />
+      <created>1727482744772</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727482744772</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added .gitignore">
+      <option name="closed" value="true" />
+      <created>1727482764837</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727482764837</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +198,8 @@
     <MESSAGE value="Basic Setup" />
     <MESSAGE value="Added get all controller" />
     <MESSAGE value="Added postgres db" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added postgres db" />
+    <MESSAGE value="Added database and typeORM with seeder" />
+    <MESSAGE value="Added .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added .gitignore" />
   </component>
 </project>
