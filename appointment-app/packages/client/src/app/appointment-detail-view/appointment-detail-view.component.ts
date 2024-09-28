@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AppointmentService } from "../appointment.service";
 import { Appointment } from "interfaces";
 import { NgbInputDatepicker, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import 'bootstrap';
 import {FormsModule} from "@angular/forms";
 
 @Component({
@@ -25,6 +26,8 @@ export class AppointmentDetailViewComponent implements OnInit {
     time: ''
   };
 
+  public toastMessage: string | null = null;
+
   constructor(
       private readonly appointmentService: AppointmentService,
       private readonly modalService: NgbModal) {}
@@ -40,8 +43,12 @@ export class AppointmentDetailViewComponent implements OnInit {
   }
 
   public deleteAppointment(appointmentId: number | undefined): void {
-    this.appointmentList = this.appointmentList.filter(app => app.id !== appointmentId);
-    this.appointmentService.deleteAppointment(appointmentId).subscribe();
+    if (appointmentId !== undefined) {
+      this.appointmentList = this.appointmentList.filter(app => app.id !== appointmentId);
+      this.appointmentService.deleteAppointment(appointmentId).subscribe(() => {
+        this.showToast('Appointment deleted successfully');
+      });
+    }
   }
 
   public saveAppointment(modal: any): void {
@@ -62,8 +69,19 @@ export class AppointmentDetailViewComponent implements OnInit {
           time: ''
         };
 
+        this.showToast('Appointment created successfully');
+
         modal.close();
       });
     }
+  }
+
+  private showToast(message: string): void {
+    this.toastMessage = message;
+    setTimeout(() => this.closeToast(), 5000);
+  }
+
+  public closeToast(): void {
+    this.toastMessage = null;
   }
 }
