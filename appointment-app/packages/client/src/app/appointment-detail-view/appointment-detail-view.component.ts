@@ -4,7 +4,7 @@ import { AppointmentService } from "../appointment.service";
 import { Appointment } from "interfaces";
 import { NgbInputDatepicker, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import 'bootstrap';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: 'app-appointment-detail-view',
@@ -26,6 +26,7 @@ export class AppointmentDetailViewComponent implements OnInit {
     time: ''
   };
 
+  public selectedAppointment: Appointment | null = null;  // To hold the selected appointment for editing
   public toastMessage: string | null = null;
 
   constructor(
@@ -39,6 +40,11 @@ export class AppointmentDetailViewComponent implements OnInit {
   }
 
   public open(modal: any): void {
+    this.modalService.open(modal);
+  }
+
+  public openEditModal(modal: any, appointment: Appointment): void {
+    this.selectedAppointment = { ...appointment };  // Clone the selected appointment for editing
     this.modalService.open(modal);
   }
 
@@ -70,8 +76,22 @@ export class AppointmentDetailViewComponent implements OnInit {
         };
 
         this.showToast('Appointment created successfully');
-
         modal.close();
+      });
+    }
+  }
+
+  public updateAppointment(modal: any): void {
+    if (this.selectedAppointment && this.selectedAppointment.id) {
+      this.appointmentService.updateAppointment(this.selectedAppointment.id, this.selectedAppointment).subscribe(updatedAppointment => {
+        const index = this.appointmentList.findIndex(app => app.id === updatedAppointment.id);
+        if (index !== -1) {
+          this.appointmentList[index] = updatedAppointment; // Update the appointment in the list
+        }
+
+        this.showToast('Appointment updated successfully');
+        modal.close();
+        this.selectedAppointment = null; // Clear the selection
       });
     }
   }

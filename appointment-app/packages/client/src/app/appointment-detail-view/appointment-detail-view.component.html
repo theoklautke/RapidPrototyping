@@ -31,6 +31,7 @@
                     <th>Date</th>
                     <th>Time</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,6 +44,11 @@
                     <td>{{ appointment.status }}</td>
                     <td>{{ appointment.date }}</td>
                     <td>{{ appointment.time }}</td>
+                    <td>
+                        <button class="btn btn-sm edit-btn" (click)="openEditModal(editAppointmentModal, appointment)">
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
+                    </td>
                     <td>
                         <button class="btn btn-sm delete-btn" (click)="deleteAppointment(appointment.id)">
                             <i class="bi bi-trash3-fill"></i>
@@ -69,32 +75,32 @@
     <div class="modal-body">
         <form #appointmentForm="ngForm">
             <div class="mb-3">
-                <label for="assignment" class="form-label">Assignment</label>
-                <input type="text" id="assignment" class="form-control" name="assignment" [(ngModel)]="newAppointment.assignment" required>
+                <label for="assignment-add" class="form-label">Assignment</label>
+                <input type="text" id="assignment-add" class="form-control" name="assignment" [(ngModel)]="newAppointment.assignment" required>
             </div>
             <div class="mb-3">
-                <label for="branch" class="form-label">Branch</label>
-                <input type="text" id="branch" class="form-control" name="branch" [(ngModel)]="newAppointment.branch" required>
+                <label for="branch-add" class="form-label">Branch</label>
+                <input type="text" id="branch-add" class="form-control" name="branch" [(ngModel)]="newAppointment.branch" required>
             </div>
             <div class="mb-3">
-                <label for="vehicleOwner" class="form-label">Vehicle Owner</label>
-                <input type="text" id="vehicleOwner" class="form-control" name="vehicleOwner" [(ngModel)]="newAppointment.vehicleOwner" required>
+                <label for="vehicleOwner-add" class="form-label">Vehicle Owner</label>
+                <input type="text" id="vehicleOwner-add" class="form-control" name="vehicleOwner" [(ngModel)]="newAppointment.vehicleOwner" required>
             </div>
             <div class="mb-3">
-                <label for="vehicleRegNo" class="form-label">Vehicle Registration No.</label>
-                <input type="text" id="vehicleRegNo" class="form-control" name="vehicleRegNo" [(ngModel)]="newAppointment.vehicleRegNo" required>
+                <label for="vehicleRegNo-add" class="form-label">Vehicle Registration No.</label>
+                <input type="text" id="vehicleRegNo-add" class="form-control" name="vehicleRegNo" [(ngModel)]="newAppointment.vehicleRegNo" required>
             </div>
             <div class="mb-3">
-                <label for="status" class="form-label">Status</label>
-                <input type="text" id="status" class="form-control" name="status" [(ngModel)]="newAppointment.status" required>
+                <label for="status-add" class="form-label">Status</label>
+                <input type="text" id="status-add" class="form-control" name="status" [(ngModel)]="newAppointment.status" required>
             </div>
             <div class="mb-3">
-                <label for="date" class="form-label">Date</label>
-                <input type="date" id="date" class="form-control" name="date" [(ngModel)]="newAppointment.date" required>
+                <label for="date-add" class="form-label">Date</label>
+                <input type="date" id="date-add" class="form-control" name="date" [(ngModel)]="newAppointment.date" required>
             </div>
             <div class="mb-3">
-                <label for="time" class="form-label">Time</label>
-                <input type="time" id="time" class="form-control" name="time" [(ngModel)]="newAppointment.time" required>
+                <label for="time-add" class="form-label">Time</label>
+                <input type="time" id="time-add" class="form-control" name="time" [(ngModel)]="newAppointment.time" required>
             </div>
         </form>
     </div>
@@ -103,6 +109,53 @@
         <button type="button" class="btn btn-primary" (click)="saveAppointment(modal)">Save</button>
     </div>
 </ng-template>
+
+<!-- Edit Appointment Modal -->
+<ng-template #editAppointmentModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Edit Appointment</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body" *ngIf="selectedAppointment">
+        <form #appointmentForm="ngForm">
+            <div class="mb-3">
+                <label for="assignment" class="form-label">Assignment</label>
+                <input type="text" id="assignment" class="form-control" name="assignment" [(ngModel)]="selectedAppointment.assignment" required>
+            </div>
+            <div class="mb-3">
+                <label for="branch" class="form-label">Branch</label>
+                <input type="text" id="branch" class="form-control" name="branch" [(ngModel)]="selectedAppointment.branch" required>
+            </div>
+            <div class="mb-3">
+                <label for="vehicleOwner" class="form-label">Vehicle Owner</label>
+                <input type="text" id="vehicleOwner" class="form-control" name="vehicleOwner" [(ngModel)]="selectedAppointment.vehicleOwner" required>
+            </div>
+            <div class="mb-3">
+                <label for="vehicleRegNo" class="form-label">Vehicle Registration No.</label>
+                <input type="text" id="vehicleRegNo" class="form-control" name="vehicleRegNo" [(ngModel)]="selectedAppointment.vehicleRegNo" required>
+            </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <input type="text" id="status" class="form-control" name="status" [(ngModel)]="selectedAppointment.status" required>
+            </div>
+            <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" id="date" class="form-control" name="date" [(ngModel)]="selectedAppointment.date" required>
+            </div>
+            <div class="mb-3">
+                <label for="time" class="form-label">Time</label>
+                <input type="time" id="time" class="form-control" name="time" [(ngModel)]="selectedAppointment.time" required>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cancel click')">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="updateAppointment(modal)">Save changes</button>
+    </div>
+</ng-template>
+
+
+
 
 <!-- Toast Notification Container -->
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
