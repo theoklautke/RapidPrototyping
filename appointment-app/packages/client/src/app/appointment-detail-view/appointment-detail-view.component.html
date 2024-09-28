@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <h1>Appointment App</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Appointment List</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container py-3">
+    <div class="row my-3">
+        <div class="col">
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Assignment</th>
+                    <th>Branch</th>
+                    <th>Vehicle Owner</th>
+                    <th>Vehicle Registration No.</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let appointment of appointmentList">
+                    <td>{{ appointment.id }}</td>
+                    <td>{{ appointment.assignment }}</td>
+                    <td>{{ appointment.branch }}</td>
+                    <td>{{ appointment.vehicleOwner }}</td>
+                    <td>{{ appointment.vehicleRegNo }}</td>
+                    <td>{{ appointment.status }}</td>
+                    <td>{{ appointment.date }}</td>
+                    <td>{{ appointment.time }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row my-3">
+        <div class="col">
+            <button class="btn btn-sm btn-outline-primary" (click)="open(addAppointmentModal)">Add appointment</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #addAppointmentModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add appointment</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form>
+           tbd
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>

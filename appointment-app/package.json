@@ -65,9 +65,16 @@
     "@nestjs/core": "^10.0.2",
     "@nestjs/platform-express": "^10.0.2",
     "@nestjs/swagger": "^7.4.2",
+    "@nestjs/typeorm": "^10.0.2",
+    "@ng-bootstrap/ng-bootstrap": "^16.0.0-rc.2",
+    "@popperjs/core": "^2.11.8",
     "axios": "^1.6.0",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "pg": "^8.13.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.8.0",
+    "typeorm": "^0.3.20",
     "zone.js": "~0.14.3"
   }
 }

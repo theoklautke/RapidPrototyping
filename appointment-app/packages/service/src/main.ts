@@ -23,6 +23,8 @@ async function bootstrap() {
       .addServer(`http://localhost:${port}`)
       .build();
 
+  app.enableCors(); // CORS aktivieren
+
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup(globalPrefix, app, document);
 
