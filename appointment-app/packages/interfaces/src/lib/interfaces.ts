@@ -53,3 +53,47 @@ export class Appointment {
   })
   time!: string;
 }
+
+export class Dealer {
+  @ApiProperty({
+    example: 10115,
+    description: "The postal code where the dealership is located.",
+    required: true
+  })
+  postalCode!: number;
+
+  @ApiProperty({
+    example: "Unter den Linden",
+    description: "The street where the dealership is located.",
+    required: true
+  })
+  street!: string;
+
+  @ApiProperty({
+    example: 1,
+    description: "The house number of the dealership.",
+    required: true
+  })
+  houseNumber!: number;
+
+  @ApiProperty({
+    example: "Berlin",
+    description: "The city (Ort) where the dealership is located.",
+    required: true
+  })
+  city!: string;
+
+  @ApiProperty({
+    example: "08:00",
+    description: "The opening time of the dealership in 24-hour format.",
+    required: true
+  })
+  openingTime!: string;
+
+  @ApiProperty({
+    example: "18:00",
+    description: "The closing time of the dealership in 24-hour format.",
+    required: true
+  })
+  closingTime!: string;
+}

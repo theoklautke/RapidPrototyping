@@ -7,6 +7,10 @@ import { AppointmentService } from './appointment/appointment.service';
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {AppointmentEntity} from "./appointment/appointment.entity";
 import {AppointmentSeeder} from "./appointment/appointment.seeder";
+import {DealerEntity} from "./dealer/dealer.entity";
+import {DealerSeeder} from "./dealer/dealer.seeder";
+import {DealerController} from "./dealer/dealer.controller";
+import {DealerService} from "./dealer/dealer.service";
 
 @Module({
   imports: [
@@ -17,18 +21,19 @@ import {AppointmentSeeder} from "./appointment/appointment.seeder";
       username: 'postgres',
       password: 'veryhard123',
       database: 'dev',
-      entities: [AppointmentEntity],
+      entities: [AppointmentEntity, DealerEntity],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([AppointmentEntity]),
+    TypeOrmModule.forFeature([AppointmentEntity, DealerEntity]),
   ],
-  controllers: [AppController, AppointmentController],
-  providers: [AppService, AppointmentService, AppointmentSeeder],
+  controllers: [AppController, AppointmentController, DealerController],
+  providers: [AppService, AppointmentService, AppointmentSeeder, DealerSeeder, DealerService],
 })
 export class AppModule implements OnModuleInit{
-  constructor(private readonly appointmentSeeder: AppointmentSeeder) {}
+  constructor(private readonly appointmentSeeder: AppointmentSeeder, private readonly dealerSeeder: DealerSeeder) {}
 
   async onModuleInit() {
     await this.appointmentSeeder.seed();
+    await this.dealerSeeder.seed();
   }
 }
