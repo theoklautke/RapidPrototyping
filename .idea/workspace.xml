@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added toast service">
+    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="added dealer in backend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +16,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -45,7 +49,7 @@
     "Docker.appointment-app: Compose Deployment.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "theo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,7 +82,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="npm.start:api">
+  <component name="RunManager" selected="npm.start:ui">
     <configuration name="service:serve:development" type="NxRunConfigurationType">
       <option name="nx-projects" value="service" />
       <option name="nx-targets" value="serve" />
@@ -88,7 +92,9 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="appointment-app: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -121,8 +127,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start:api" />
         <item itemvalue="npm.start:ui" />
+        <item itemvalue="npm.start:api" />
         <item itemvalue="Docker.appointment-app: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -144,7 +150,10 @@
       <updated>1727469956260</updated>
       <workItem from="1727469957585" duration="1820000" />
       <workItem from="1727471782703" duration="830000" />
-      <workItem from="1727474393565" duration="21448000" />
+      <workItem from="1727474393565" duration="24830000" />
+      <workItem from="1727706865887" duration="1947000" />
+      <workItem from="1729177410361" duration="9630000" />
+      <workItem from="1730129833178" duration="2157000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Setup">
       <option name="closed" value="true" />
@@ -218,7 +227,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727559439710</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added put">
+      <option name="closed" value="true" />
+      <created>1727561360163</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1727561360163</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added dealer in backend">
+      <option name="closed" value="true" />
+      <created>1729180527565</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1729180527565</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,6 +259,8 @@
     <MESSAGE value="Added frontend and bootstrap" />
     <MESSAGE value="Added post and delete in frontend" />
     <MESSAGE value="Added toast service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added toast service" />
+    <MESSAGE value="Added put" />
+    <MESSAGE value="added dealer in backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="added dealer in backend" />
   </component>
 </project>
