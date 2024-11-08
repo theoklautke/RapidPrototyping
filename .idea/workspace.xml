@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="added logic and modals for dealer">
+      <change afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,12 +69,12 @@
       "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/package.json",
       "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/webpack.config.js",
       "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/eslint.config.js",
-      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/project.json",
-      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/package.json",
-      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/eslint.config.js",
       "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/client/project.json",
       "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/client/package.json",
       "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/client/eslint.config.js",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/project.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/package.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/eslint.config.js",
       "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service-e2e/project.json",
       "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service-e2e/package.json",
       "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service-e2e/eslint.config.js",
