@@ -25,12 +25,13 @@
                     <td>{{ appointment.date }}</td>
                     <td>{{ appointment.time }}</td>
                     <td>
-                        <button class="btn btn-sm edit-btn" (click)="openEditModalAppointment(editAppointmentModal, appointment)">
+                        <button (click)="openEditModalAppointment(editAppointmentModal, appointment)"
+                                class="btn btn-sm edit-btn">
                             <i class="bi bi-pencil-square"></i>
                         </button>
                     </td>
                     <td>
-                        <button class="btn btn-sm delete-btn" (click)="deleteAppointment(appointment.id)">
+                        <button (click)="deleteAppointment(appointment.id)" class="btn btn-sm delete-btn">
                             <i class="bi bi-trash3-fill"></i>
                         </button>
                     </td>
@@ -42,243 +43,123 @@
 
     <div class="row my-3">
         <div class="col">
-            <button class="btn btn-sm btn-outline-primary" (click)="open(addAppointmentModal)"><i class="bi bi-plus-circle"></i> Appointment</button>
+            <button (click)="open(addAppointmentModal)" class="btn btn-sm btn-outline-primary"><i
+                    class="bi bi-plus-circle"></i> Appointment
+            </button>
         </div>
     </div>
 </div>
-
-
-
-<div class="container py-3">
-    <div class="row my-3">
-        <div class="col">
-            <table class="table table-striped table-hover">
-                <thead class="thead-dark">
-                <tr>
-                    <th>Post Code</th>
-                    <th>Street</th>
-                    <th>House Number</th>
-                    <th>City</th>
-                    <th>Opening Time</th>
-                    <th>Closing Time</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let dealer of dealerList">
-                    <td>{{ dealer.postalCode}}</td>
-                    <td>{{dealer.street}}</td>
-                    <td>{{ dealer.houseNumber }}</td>
-                    <td>{{ dealer.city }}</td>
-                    <td>{{ dealer.openingTime }}</td>
-                    <td>{{ dealer.closingTime }}</td>
-                    <td>
-                        <button class="btn btn-sm edit-btn" (click)="openEditModalDealer(editDealerModal, dealer)">
-                            <i class="bi bi-pencil-square"></i>
-                        </button>
-                    </td>
-                    <td>
-                        <button class="btn btn-sm delete-btn" (click)="deleteDealer(dealer.id)">
-                            <i class="bi bi-trash3-fill"></i>
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="row my-3">
-        <div class="col">
-            <button class="btn btn-sm btn-outline-primary" (click)="open(addDealerModal)"><i class="bi bi-plus-circle"></i> Dealer</button>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
 <ng-template #addAppointmentModal let-modal>
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title-appointment">Add appointment</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        <button (click)="modal.dismiss('Cross click')" aria-label="Close" class="btn-close" data-bs-dismiss="modal"
+                type="button"></button>
     </div>
     <div class="modal-body">
         <form #appointmentForm="ngForm">
             <div class="mb-3">
-                <label for="assignment-add" class="form-label">Assignment</label>
-                <input type="text" id="assignment-add" class="form-control" name="assignment" [(ngModel)]="newAppointment.assignment" required>
+                <label class="form-label" for="assignment-add">Assignment</label>
+                <input [(ngModel)]="newAppointment.assignment" class="form-control" id="assignment-add" name="assignment"
+                       required type="text">
             </div>
             <div class="mb-3">
-                <label for="branch-add" class="form-label">Branch</label>
-                <input type="text" id="branch-add" class="form-control" name="branch" [(ngModel)]="newAppointment.branch" required>
+                <label class="form-label" for="branch-add">Branch</label>
+                <input [(ngModel)]="newAppointment.branch" class="form-control" id="branch-add" name="branch"
+                       required type="text">
             </div>
             <div class="mb-3">
-                <label for="vehicleOwner-add" class="form-label">Vehicle Owner</label>
-                <input type="text" id="vehicleOwner-add" class="form-control" name="vehicleOwner" [(ngModel)]="newAppointment.vehicleOwner" required>
+                <label class="form-label" for="vehicleOwner-add">Vehicle Owner</label>
+                <input [(ngModel)]="newAppointment.vehicleOwner" class="form-control" id="vehicleOwner-add" name="vehicleOwner"
+                       required type="text">
             </div>
             <div class="mb-3">
-                <label for="vehicleRegNo-add" class="form-label">Vehicle Registration No.</label>
-                <input type="text" id="vehicleRegNo-add" class="form-control" name="vehicleRegNo" [(ngModel)]="newAppointment.vehicleRegNo" required>
+                <label class="form-label" for="vehicleRegNo-add">Vehicle Registration No.</label>
+                <input [(ngModel)]="newAppointment.vehicleRegNo" class="form-control" id="vehicleRegNo-add" name="vehicleRegNo"
+                       required type="text">
             </div>
             <div class="mb-3">
-                <label for="status-add" class="form-label">Status</label>
-                <input type="text" id="status-add" class="form-control" name="status" [(ngModel)]="newAppointment.status" required>
+                <label class="form-label" for="status-add">Status</label>
+                <input [(ngModel)]="newAppointment.status" class="form-control" id="status-add" name="status"
+                       required type="text">
             </div>
             <div class="mb-3">
-                <label for="date-add" class="form-label">Date</label>
-                <input type="date" id="date-add" class="form-control" name="date" [(ngModel)]="newAppointment.date" required>
+                <label class="form-label" for="date-add">Date</label>
+                <input [(ngModel)]="newAppointment.date" class="form-control" id="date-add" name="date" required
+                       type="date">
             </div>
             <div class="mb-3">
-                <label for="time-add" class="form-label">Time</label>
-                <input type="time" id="time-add" class="form-control" name="time" [(ngModel)]="newAppointment.time" required>
+                <label class="form-label" for="time-add">Time</label>
+                <input [(ngModel)]="newAppointment.time" class="form-control" id="time-add" name="time" required
+                       type="time">
             </div>
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cancel click')">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="saveAppointment(modal)">Save</button>
+        <button (click)="modal.dismiss('Cancel click')" class="btn btn-outline-dark" type="button">Cancel</button>
+        <button (click)="saveAppointment(modal)" class="btn btn-primary" type="button">Save</button>
     </div>
 </ng-template>
 
-<ng-template #addDealerModal let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title-dealer">Add dealer</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body">
-        <form #dealerForm="ngForm">
-            <div class="mb-3">
-                <label for="assignment-add" class="form-label">Postcode</label>
-                <input type="number" id="postalCode-add" class="form-control" name="assignment" [(ngModel)]="newDealer.postalCode" required>
-            </div>
-            <div class="mb-3">
-                <label for="branch-add" class="form-label">Street</label>
-                <input type="text" id="street-add" class="form-control" name="branch" [(ngModel)]="newDealer.street" required>
-            </div>
-            <div class="mb-3">
-                <label for="vehicleOwner-add" class="form-label">House No.</label>
-                <input type="number" id="houseNumber-add" class="form-control" name="vehicleOwner" [(ngModel)]="newDealer.houseNumber" required>
-            </div>
-            <div class="mb-3">
-                <label for="vehicleRegNo-add" class="form-label">City</label>
-                <input type="text" id="city-add" class="form-control" name="vehicleRegNo" [(ngModel)]="newDealer.city" required>
-            </div>
-            <div class="mb-3">
-                <label for="status-add" class="form-label">Opening time</label>
-                <input type="time" id="openingTime-add" class="form-control" name="status" [(ngModel)]="newDealer.openingTime" required>
-            </div>
-            <div class="mb-3">
-                <label for="date-add" class="form-label">Closing time</label>
-                <input type="time" id="closingTime-add" class="form-control" name="date" [(ngModel)]="newDealer.closingTime" required>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cancel click')">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="saveDealer(modal)">Save</button>
-    </div>
-</ng-template>
 
 <!-- Edit Appointment Modal -->
 <ng-template #editAppointmentModal let-modal>
     <div class="modal-header">
         <h4 class="modal-title">Edit Appointment</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        <button (click)="modal.dismiss('Cross click')" aria-label="Close" class="btn-close" data-bs-dismiss="modal"
+                type="button"></button>
     </div>
-    <div class="modal-body" *ngIf="selectedAppointment">
+    <div *ngIf="selectedAppointment" class="modal-body">
         <form #appointmentForm="ngForm">
             <div class="mb-3">
-                <label for="assignment" class="form-label">Assignment</label>
-                <input type="text" id="assignment" class="form-control" name="assignment" [(ngModel)]="selectedAppointment.assignment" required>
+                <label class="form-label" for="assignment">Assignment</label>
+                <input [(ngModel)]="selectedAppointment.assignment" class="form-control" id="assignment" name="assignment"
+                       required type="text">
             </div>
             <div class="mb-3">
-                <label for="branch" class="form-label">Branch</label>
-                <input type="text" id="branch" class="form-control" name="branch" [(ngModel)]="selectedAppointment.branch" required>
+                <label class="form-label" for="branch">Branch</label>
+                <input [(ngModel)]="selectedAppointment.branch" class="form-control" id="branch" name="branch"
+                       required type="text">
             </div>
             <div class="mb-3">
-                <label for="vehicleOwner" class="form-label">Vehicle Owner</label>
-                <input type="text" id="vehicleOwner" class="form-control" name="vehicleOwner" [(ngModel)]="selectedAppointment.vehicleOwner" required>
+                <label class="form-label" for="vehicleOwner">Vehicle Owner</label>
+                <input [(ngModel)]="selectedAppointment.vehicleOwner" class="form-control" id="vehicleOwner" name="vehicleOwner"
+                       required type="text">
             </div>
             <div class="mb-3">
-                <label for="vehicleRegNo" class="form-label">Vehicle Registration No.</label>
-                <input type="text" id="vehicleRegNo" class="form-control" name="vehicleRegNo" [(ngModel)]="selectedAppointment.vehicleRegNo" required>
+                <label class="form-label" for="vehicleRegNo">Vehicle Registration No.</label>
+                <input [(ngModel)]="selectedAppointment.vehicleRegNo" class="form-control" id="vehicleRegNo" name="vehicleRegNo"
+                       required type="text">
             </div>
             <div class="mb-3">
-                <label for="status" class="form-label">Status</label>
-                <input type="text" id="status" class="form-control" name="status" [(ngModel)]="selectedAppointment.status" required>
+                <label class="form-label" for="status">Status</label>
+                <input [(ngModel)]="selectedAppointment.status" class="form-control" id="status" name="status"
+                       required type="text">
             </div>
             <div class="mb-3">
-                <label for="date" class="form-label">Date</label>
-                <input type="date" id="date" class="form-control" name="date" [(ngModel)]="selectedAppointment.date" required>
+                <label class="form-label" for="date">Date</label>
+                <input [(ngModel)]="selectedAppointment.date" class="form-control" id="date" name="date" required
+                       type="date">
             </div>
             <div class="mb-3">
-                <label for="time" class="form-label">Time</label>
-                <input type="time" id="time" class="form-control" name="time" [(ngModel)]="selectedAppointment.time" required>
+                <label class="form-label" for="time">Time</label>
+                <input [(ngModel)]="selectedAppointment.time" class="form-control" id="time" name="time" required
+                       type="time">
             </div>
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cancel click')">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="updateAppointment(modal)">Save changes</button>
+        <button (click)="modal.dismiss('Cancel click')" class="btn btn-outline-dark" type="button">Cancel</button>
+        <button (click)="updateAppointment(modal)" class="btn btn-primary" type="button">Save changes</button>
     </div>
 </ng-template>
-
-
-<ng-template #editDealerModal let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title">Edit Dealer</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body" *ngIf="selectedDealer">
-        <form #dealerForm="ngForm">
-            <div class="mb-3">
-                <label for="assignment" class="form-label">Postcode</label>
-                <input type="text" id="postalCode" class="form-control" name="postalCode" [(ngModel)]="selectedDealer.postalCode" required>
-            </div>
-            <div class="mb-3">
-                <label for="branch" class="form-label">Street</label>
-                <input type="text" id="street" class="form-control" name="street" [(ngModel)]="selectedDealer.street" required>
-            </div>
-            <div class="mb-3">
-                <label for="branch" class="form-label">City</label>
-                <input type="text" id="city" class="form-control" name="city" [(ngModel)]="selectedDealer.city" required>
-            </div>
-            <div class="mb-3">
-                <label for="vehicleOwner" class="form-label">House No.</label>
-                <input type="text" id="houseNumber" class="form-control" name="houseNumber" [(ngModel)]="selectedDealer.houseNumber" required>
-            </div>
-            <div class="mb-3">
-                <label for="vehicleRegNo" class="form-label">Opening Time</label>
-                <input type="text" id="openingTime" class="form-control" name="openingTime" [(ngModel)]="selectedDealer.openingTime" required>
-            </div>
-            <div class="mb-3">
-                <label for="status" class="form-label">Closing Time</label>
-                <input type="text" id="closingTime" class="form-control" name="closingTime" [(ngModel)]="selectedDealer.closingTime" required>
-            </div>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cancel click')">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="updateDealer(modal)">Save changes</button>
-    </div>
-</ng-template>
-
-
-
 
 <!-- Toast Notification Container -->
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div class="toast show" *ngIf="toastMessage" role="alert" aria-live="assertive" aria-atomic="true">
+    <div *ngIf="toastMessage" aria-atomic="true" aria-live="assertive" class="toast show" role="alert">
         <div class="toast-header">
             <strong class="me-auto">Notification</strong>
-            <button type="button" class="btn-close" (click)="closeToast()"></button>
+            <button (click)="closeToast()" class="btn-close" type="button"></button>
         </div>
         <div class="toast-body">
             {{ toastMessage }}

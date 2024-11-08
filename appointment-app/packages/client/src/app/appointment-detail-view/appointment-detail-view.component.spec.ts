@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AppointmentDetailViewComponent } from './appointment-detail-view.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {AppointmentDetailViewComponent} from './appointment-detail-view.component';
 
 describe('AppointmentDetailViewComponent', () => {
-  let component: AppointmentDetailViewComponent;
-  let fixture: ComponentFixture<AppointmentDetailViewComponent>;
+    let component: AppointmentDetailViewComponent;
+    let fixture: ComponentFixture<AppointmentDetailViewComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppointmentDetailViewComponent],
-    }).compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [AppointmentDetailViewComponent],
+        }).compileComponents();
 
-    fixture = TestBed.createComponent(AppointmentDetailViewComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(AppointmentDetailViewComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
