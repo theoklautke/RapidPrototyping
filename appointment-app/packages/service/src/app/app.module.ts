@@ -11,6 +11,10 @@ import {DealerEntity} from "./dealer/dealer.entity";
 import {DealerSeeder} from "./dealer/dealer.seeder";
 import {DealerController} from "./dealer/dealer.controller";
 import {DealerService} from "./dealer/dealer.service";
+import {UserEntity} from "./user/user.entity";
+import {UserController} from "./user/user.controller";
+import {UserService} from "./user/user.service";
+import {UserSeeder} from "./user/user.seeder";
 
 @Module({
   imports: [
@@ -21,19 +25,23 @@ import {DealerService} from "./dealer/dealer.service";
       username: 'postgres',
       password: 'veryhard123',
       database: 'dev',
-      entities: [AppointmentEntity, DealerEntity],
+      entities: [AppointmentEntity, DealerEntity, UserEntity],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([AppointmentEntity, DealerEntity]),
+    TypeOrmModule.forFeature([AppointmentEntity, DealerEntity, UserEntity]),
   ],
-  controllers: [AppController, AppointmentController, DealerController],
-  providers: [AppService, AppointmentService, AppointmentSeeder, DealerSeeder, DealerService],
+  controllers: [AppController, AppointmentController, DealerController, UserController],
+  providers: [AppService, AppointmentService, AppointmentSeeder, DealerSeeder, DealerService, UserService, UserSeeder],
 })
 export class AppModule implements OnModuleInit{
-  constructor(private readonly appointmentSeeder: AppointmentSeeder, private readonly dealerSeeder: DealerSeeder) {}
+  constructor(
+      private readonly appointmentSeeder: AppointmentSeeder,
+      private readonly dealerSeeder: DealerSeeder,
+      private readonly userSeeder: UserSeeder,) {}
 
   async onModuleInit() {
     await this.appointmentSeeder.seed();
     await this.dealerSeeder.seed();
+    await this.userSeeder.seed();
   }
 }
