@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
 import { UserService } from './user.service';
 import { ApiTags, ApiResponse, ApiOperation } from '@nestjs/swagger';
-import {User} from "interfaces";
+import {LoginDto, User} from "interfaces";
 
 @ApiTags('users')
 @Controller('user')
@@ -59,5 +59,18 @@ export class UserController {
     @ApiResponse({ status: 204, description: 'The user has been successfully deleted.' })
     public async deleteUser(@Param('id') id: number): Promise<void> {
         return this.userService.deleteUser(id);
+    }
+
+    /**
+     * Handles user login.
+     * @param loginData - The login data (email and password).
+     * @returns A token or error message.
+     */
+    @Post('login')
+    @ApiOperation({ summary: 'Login a user' })
+    @ApiResponse({ status: 200, description: 'User successfully logged in.' })
+    @ApiResponse({ status: 401, description: 'Invalid credentials.' })
+    public async login(@Body() loginData: LoginDto): Promise<{ accessToken: string }> {
+        return this.userService.login(loginData);
     }
 }

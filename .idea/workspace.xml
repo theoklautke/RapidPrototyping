@@ -4,12 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added routes">
+    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added user in backend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer-detail-view/dealer-detail-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer-detail-view/dealer-detail-view.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/nx-welcome.component.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +92,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="npm.start:api">
+  <component name="RunManager" selected="npm.start:ui">
     <configuration name="service:serve:development" type="NxRunConfigurationType">
       <option name="nx-projects" value="service" />
       <option name="nx-targets" value="serve" />
@@ -128,8 +137,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start:api" />
         <item itemvalue="npm.start:ui" />
+        <item itemvalue="npm.start:api" />
         <item itemvalue="Docker.appointment-app: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -276,7 +285,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731103409386</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added user in backend">
+      <option name="closed" value="true" />
+      <created>1731106746065</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1731106746065</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +315,7 @@
     <MESSAGE value="Moved navbar in own file" />
     <MESSAGE value="Moved dealer view in own file" />
     <MESSAGE value="Added routes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added routes" />
+    <MESSAGE value="Added user in backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added user in backend" />
   </component>
 </project>

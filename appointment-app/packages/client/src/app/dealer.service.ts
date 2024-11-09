@@ -8,7 +8,7 @@ import { Dealer } from 'interfaces';
 })
 export class DealerService {
 
-    private apiUrl = 'http://localhost:3000/Api/dealer';
+    private apiUrl = 'http://localhost:3000/api/dealer';
 
     constructor(private http: HttpClient) {}
 

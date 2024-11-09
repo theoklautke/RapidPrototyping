@@ -1,20 +1,21 @@
-import {Module, OnModuleInit} from '@nestjs/common';
+import { Module, OnModuleInit } from '@nestjs/common';
+import { JwtModule } from '@nestjs/jwt'; // Füge das JwtModule hinzu
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AppointmentController } from './appointment/appointment.controller';
 import { AppointmentService } from './appointment/appointment.service';
-import {TypeOrmModule} from "@nestjs/typeorm";
-import {AppointmentEntity} from "./appointment/appointment.entity";
-import {AppointmentSeeder} from "./appointment/appointment.seeder";
-import {DealerEntity} from "./dealer/dealer.entity";
-import {DealerSeeder} from "./dealer/dealer.seeder";
-import {DealerController} from "./dealer/dealer.controller";
-import {DealerService} from "./dealer/dealer.service";
-import {UserEntity} from "./user/user.entity";
-import {UserController} from "./user/user.controller";
-import {UserService} from "./user/user.service";
-import {UserSeeder} from "./user/user.seeder";
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { AppointmentEntity } from './appointment/appointment.entity';
+import { AppointmentSeeder } from './appointment/appointment.seeder';
+import { DealerEntity } from './dealer/dealer.entity';
+import { DealerSeeder } from './dealer/dealer.seeder';
+import { DealerController } from './dealer/dealer.controller';
+import { DealerService } from './dealer/dealer.service';
+import { UserEntity } from './user/user.entity';
+import { UserController } from './user/user.controller';
+import { UserService } from './user/user.service';
+import { UserSeeder } from './user/user.seeder';
 
 @Module({
   imports: [
@@ -29,15 +30,21 @@ import {UserSeeder} from "./user/user.seeder";
       synchronize: true,
     }),
     TypeOrmModule.forFeature([AppointmentEntity, DealerEntity, UserEntity]),
+
+    JwtModule.register({
+      secret: '123veryhard',
+      signOptions: { expiresIn: '60m' },
+    }),
   ],
   controllers: [AppController, AppointmentController, DealerController, UserController],
   providers: [AppService, AppointmentService, AppointmentSeeder, DealerSeeder, DealerService, UserService, UserSeeder],
 })
-export class AppModule implements OnModuleInit{
+export class AppModule implements OnModuleInit {
   constructor(
       private readonly appointmentSeeder: AppointmentSeeder,
       private readonly dealerSeeder: DealerSeeder,
-      private readonly userSeeder: UserSeeder,) {}
+      private readonly userSeeder: UserSeeder,
+  ) {}
 
   async onModuleInit() {
     await this.appointmentSeeder.seed();

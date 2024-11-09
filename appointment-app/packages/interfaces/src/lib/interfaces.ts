@@ -143,3 +143,19 @@ export class User {
   })
   password!: string;
 }
+
+export class LoginDto {
+  @ApiProperty({
+    example: 'john.doe@example.com',
+    description: 'The email address of the user.',
+    required: true,
+  })
+  email!: string;
+
+  @ApiProperty({
+    example: 'StrongPassword123!',
+    description: 'The password for the user account.',
+    required: true,
+  })
+  password!: string;
+}

@@ -2,50 +2,52 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UserEntity } from './user.entity';
-import { User } from 'interfaces';
+import { User, LoginDto } from 'interfaces';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class UserService {
     constructor(
         @InjectRepository(UserEntity)
         private userRepository: Repository<UserEntity>,
+        private jwtService: JwtService
     ) {}
 
-    /**
-     * Retrieves all users from the database.
-     * @returns A promise that resolves to an array of User objects.
-     */
     public async getAllUsers(): Promise<User[]> {
         return this.userRepository.find();
     }
 
-    /**
-     * Creates a new user and saves it to the database.
-     * @param userData - The user data to be created.
-     * @returns A promise that resolves to the created User object.
-     */
     public async createUser(userData: User): Promise<User> {
         const newUser = this.userRepository.create(userData);
         return this.userRepository.save(newUser);
     }
 
-    /**
-     * Updates an existing user by ID with the provided data.
-     * @param id - The ID of the user to be updated.
-     * @param userData - The updated user data.
-     * @returns A promise that resolves to the updated User object.
-     */
     public async updateUser(id: number, userData: User): Promise<User> {
         await this.userRepository.update(id, userData);
         return this.userRepository.findOne({ where: { id } });
     }
 
-    /**
-     * Deletes a user by ID from the database.
-     * @param id - The ID of the user to be deleted.
-     * @returns A promise that resolves to void.
-     */
     public async deleteUser(id: number): Promise<void> {
         await this.userRepository.delete(id);
+    }
+
+    /**
+     * Login a user by checking email and password in plain text.
+     * @param loginData - The login credentials (email and password).
+     * @returns A JWT access token.
+     */
+    public async login(loginData: LoginDto): Promise<{ accessToken: string }> {
+        const { email, password } = loginData;
+
+        const user = await this.userRepository.findOne({ where: { email } });
+
+        if (!user || password !== user.password) {
+            throw new Error('Invalid credentials');
+        }
+
+        const payload = { email: user.email, sub: user.id };
+        const accessToken = this.jwtService.sign(payload);
+
+        return { accessToken };
     }
 }
