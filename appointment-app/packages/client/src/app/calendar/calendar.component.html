@@ -37,12 +37,52 @@
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <label for="timeInput" class="form-label">Zeit</label>
-            <input type="time" class="form-control" id="timeInput" [(ngModel)]="selectedEvent.time" name="time">
+            <label for="editTimeInput" class="form-label">Zeit</label>
+            <input type="time" class="form-control" id="editTimeInput" [(ngModel)]="selectedEvent.time" name="time">
           </div>
           <div class="mb-3">
+            <label for="editDateInput" class="form-label">Datum</label>
+            <input type="date" class="form-control" id="editDateInput" [(ngModel)]="selectedEvent.date" name="date">
+          </div>
+          <div class="mb-3">
+            <label for="editVehicleOwnerInput" class="form-label">Fahrzeugbesitzer</label>
+            <input type="text" class="form-control" id="editVehicleOwnerInput" [(ngModel)]="selectedEvent.vehicleOwner" name="vehicleOwner">
+          </div>
+          <div class="mb-3">
+            <label for="editBranchInput" class="form-label">Niederlassung</label>
+            <input type="text" class="form-control" id="editBranchInput" [(ngModel)]="selectedEvent.branch" name="branch">
+          </div>
+          <div class="mb-3">
+            <label for="editAssignmentInput" class="form-label">Auftrag</label>
+            <textarea class="form-control" id="editAssignmentInput" [(ngModel)]="selectedEvent.assignment" name="assignment"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
+        <button type="button" class="btn btn-primary" (click)="saveEditedAppointment()">Speichern</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap Modal zur Erstellung eines neuen Termins -->
+<div class="modal fade" id="addAppointmentModal" tabindex="-1" aria-labelledby="addAppointmentModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addAppointmentModalLabel">Neuen Termin hinzufügen</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
             <label for="dateInput" class="form-label">Datum</label>
-            <input type="date" class="form-control" id="dateInput" [(ngModel)]="selectedEvent.date" name="date">
+            <input type="text" class="form-control" id="dateInput" [(ngModel)]="selectedEvent.date" name="date" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="timeInput" class="form-label">Zeit</label>
+            <input type="time" class="form-control" id="timeInput" [(ngModel)]="selectedEvent.time" name="time">
           </div>
           <div class="mb-3">
             <label for="vehicleOwnerInput" class="form-label">Fahrzeugbesitzer</label>
@@ -60,7 +100,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
-        <button type="button" class="btn btn-primary" (click)="saveEditedAppointment()">Speichern</button>
+        <button type="button" class="btn btn-primary" (click)="saveNewAppointment()">Speichern</button>
       </div>
     </div>
   </div>

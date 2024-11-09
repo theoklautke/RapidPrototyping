@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+/* Dunklere Trennstriche im Kalender */
+.fc-theme-standard .fc-scrollgrid, .fc-theme-standard td, .fc-theme-standard th {
+  border-color: #333; /* Dunklere Farbe für die Trennstriche */
+}
+
+/* Datumszahlen in Schwarz */
+.fc-daygrid-day-number {
+  color: #000; /* Farbe für die Datumszahlen auf Schwarz setzen */
+}
+
+/* Wochentagsnamen in Schwarz und fett */
+.fc-theme-standard .fc-col-header-cell-cushion {
+  color: #000;       /* Farbe auf Schwarz setzen */
+  font-weight: bold; /* Fettgedruckt */
+}
+/* Hintergrundfarbe für alle Wochentage auf helles Grau setzen */
+.fc-theme-standard .fc-col-header-cell {
+  background-color: #e0e0e0; /* Helles Grau */
+}
+
+/* Hintergrundfarbe für alle Kalendertage im Monat auf ein helles Grau setzen */
+.fc-daygrid-day {
+  background-color: #f8f9fa; /* Sehr helles Grau */
+}
+
+/* Hintergrundfarbe für den aktuellen Tag auf ein helles Blau setzen */
+.fc-day-today {
+  background-color: #cfe3ff !important; /* Helles Blau */
+}
+/* Konstante Höhe für alle Kalenderzeilen */
+.fc-daygrid-day-frame {
+  height: 80px; /* Setze die maximale Höhe für die Zellen */
+  overflow: hidden; /* Überschüssiger Inhalt wird versteckt */
+}
+
+/* Events innerhalb der Tageszellen */
+.fc-daygrid-event {
+  max-height: 50px; /* Setze eine maximale Höhe für Events, damit die Zelle nicht größer wird */
+  overflow: hidden; /* Überschüssiger Text wird abgeschnitten */
+  white-space: nowrap; /* Kein Zeilenumbruch, um die Höhe konstant zu halten */
+}
+
+/* Für mehr als 1 Event Scrollen erlauben */
+.fc-daygrid-day-events {
+  max-height: 70px; /* Maximaler Platz für die Events */
+  overflow-y: auto; /* Scrollbar, falls es zu viele Events gibt */
+}

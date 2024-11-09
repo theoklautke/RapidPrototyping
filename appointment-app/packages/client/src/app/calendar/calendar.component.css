@@ -1,0 +1,15 @@
+/* Dunklere Trennstriche im Kalender */
+.fc-theme-standard .fc-scrollgrid, .fc-theme-standard td, .fc-theme-standard th {
+    border-color: #333; /* Dunklere Farbe für die Trennstriche */
+}
+
+/* Datumszahlen in Schwarz */
+.fc-daygrid-day-number {
+    color: #000; /* Farbe für die Datumszahlen auf Schwarz setzen */
+}
+
+/* Wochentagsnamen in Schwarz und fett */
+.fc-col-header-cell {
+    color: #000;       /* Farbe auf Schwarz setzen */
+    font-weight: bold; /* Fettgedruckt */
+}

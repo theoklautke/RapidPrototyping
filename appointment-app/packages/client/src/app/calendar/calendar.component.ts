@@ -34,7 +34,8 @@ export class CalendarComponent implements OnInit {
       initialView: 'dayGridMonth',
       plugins: [dayGridPlugin, interactionPlugin],
       events: [],
-      eventClick: this.handleEventClick.bind(this), // Nur einmal binden
+      eventClick: this.handleEventClick.bind(this),
+      dateClick: this.handleDateClick.bind(this),
       eventContent: (arg) => {
         return {
           html: `${arg.event.title.replace(/\n/g, '<br>')}`
@@ -104,8 +105,63 @@ export class CalendarComponent implements OnInit {
     }
   }
 
+  // Behandlung des Klicks auf ein Datum
+  handleDateClick(arg: any): void {
+    console.log('Datum angeklickt:', arg.dateStr);
+
+    // Setze den `selectedEvent` auf die Werte des neuen Termins
+    this.selectedEvent = {
+      id: null,  // Für einen neuen Termin ist die ID null
+      date: arg.dateStr,  // Das angeklickte Datum
+      time: '',  // Der Benutzer muss die Uhrzeit eingeben
+      vehicleOwner: '',
+      vehicleRegNo: '',
+      branch: '',
+      status: '',
+      assignment: ''
+    };
+
+    // Öffne das Modal zum Hinzufügen eines neuen Termins
+    this.openModal('addAppointmentModal');
+  }
 
 
+
+  // Erstelle einen neuen Termin
+  saveNewAppointment(): void {
+    console.log('Neuer Termin speichern-Button geklickt');
+
+    if (this.selectedEvent) {
+      const newAppointment = {
+        date: this.selectedEvent.date,
+        time: this.selectedEvent.time,
+        vehicleOwner: this.selectedEvent.vehicleOwner,
+        vehicleRegNo: this.selectedEvent.vehicleRegNo,
+        branch: this.selectedEvent.branch,
+        status: this.selectedEvent.status,
+        assignment: this.selectedEvent.assignment,
+      };
+
+      console.log('Daten für neuen Termin:', newAppointment);
+
+      this.appointmentService.createAppointment(newAppointment).subscribe({
+        next: () => {
+          console.log('Neuer Termin wurde erfolgreich erstellt.');
+
+          // Aktualisiere den Kalender, damit der neue Termin angezeigt wird
+          this.refreshCalendar();
+
+          // Schließe das Modal
+          this.closeAllModals();
+        },
+        error: (error) => {
+          console.error('Fehler beim Erstellen des neuen Termins:', error);
+        }
+      });
+    } else {
+      console.warn('Es wurden keine gültigen Daten für den neuen Termin eingegeben.');
+    }
+  }
 
 
   // Bearbeite den Termin

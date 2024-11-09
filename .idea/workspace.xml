@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="added Calender">
+    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added functionallity to calender">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/calendar/calendar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/calendar/calendar.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/calendar/calendar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/calendar/calendar.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/calendar/calendar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/calendar/calendar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +172,7 @@
       <workItem from="1729175728061" duration="6717000" />
       <workItem from="1731153615531" duration="503000" />
       <workItem from="1731154171144" duration="8644000" />
-      <workItem from="1731165068053" duration="12099000" />
+      <workItem from="1731165068053" duration="14599000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Setup">
       <option name="closed" value="true" />
@@ -245,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727559439710</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added functionallity to calender">
+      <option name="closed" value="true" />
+      <created>1731177595039</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731177595039</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,6 +278,7 @@
     <MESSAGE value="Added frontend and bootstrap" />
     <MESSAGE value="Added post and delete in frontend" />
     <MESSAGE value="Added toast service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added toast service" />
+    <MESSAGE value="Added functionallity to calender" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionallity to calender" />
   </component>
 </project>
