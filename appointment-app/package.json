@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start:api": "docker-compose up -d && nx run service:serve:development",
-    "start:ui": "nx run client:serve"
+    "start:ui": "nx run client:serve",
+    "reset": "nx reset"
   },
   "private": true,
   "devDependencies": {
@@ -63,6 +64,11 @@
     "@angular/platform-browser": "~18.2.0",
     "@angular/platform-browser-dynamic": "~18.2.0",
     "@angular/router": "~18.2.0",
+    "@fullcalendar/angular": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/list": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
     "@nestjs/common": "^10.0.2",
     "@nestjs/core": "^10.0.2",
     "@nestjs/jwt": "^10.2.0",
@@ -71,6 +77,8 @@
     "@nestjs/typeorm": "^10.0.2",
     "@ng-bootstrap/ng-bootstrap": "^16.0.0-rc.2",
     "@popperjs/core": "^2.11.8",
+    "angular-calendar": "^0.31.1",
+    "angularx-flatpickr": "^8.0.0",
     "axios": "^1.6.0",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",

@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added isDealer in token">
+    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added toast service">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="robin" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,9 +36,12 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/theoklautke/RapidPrototyping.git&quot;,
-    &quot;accountId&quot;: &quot;ee182836-6c8a-4886-a7a6-c8c4fa9a4d69&quot;
+    &quot;accountId&quot;: &quot;0f4694c3-7f0d-45f3-91bb-f4ceba8dd9b0&quot;
   }
 }</component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -41,46 +50,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Docker.Start database.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.appointment-app: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;theo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.start:api (1).executor&quot;: &quot;Run&quot;,
-    &quot;npm.start:api.executor&quot;: &quot;Run&quot;,
-    &quot;npm.start:ui.executor&quot;: &quot;Run&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Docker.Start database.executor": "Run",
+    "Docker.appointment-app: Compose Deployment.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/robin/Desktop/Projekt Rapid Prototyping",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start:api (1).executor": "Run",
+    "npm.start:api.executor": "Run",
+    "npm.start:ui.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "C:\\Users\\robin\\Desktop\\Projekt Rapid Prototyping\\appointment-app\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;dev.nx.console.project_details_files&quot;: [
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/project.json&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/package.json&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/webpack.config.js&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/eslint.config.js&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/client/project.json&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/client/package.json&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/client/eslint.config.js&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/project.json&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/package.json&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/eslint.config.js&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service-e2e/project.json&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service-e2e/package.json&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service-e2e/eslint.config.js&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/shared/project.json&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/shared/package.json&quot;,
-      &quot;/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/shared/eslint.config.js&quot;
+  "keyToStringList": {
+    "dev.nx.console.project_details_files": [
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/project.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/package.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/webpack.config.js",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service/eslint.config.js",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/client/project.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/client/package.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/client/eslint.config.js",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/project.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/package.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/interfaces/eslint.config.js",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service-e2e/project.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service-e2e/package.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/service-e2e/eslint.config.js",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/shared/project.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/shared/package.json",
+      "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/packages/shared/eslint.config.js"
     ]
   }
-}</component>
-  <component name="RunManager" selected="npm.start:api">
+}]]></component>
+  <component name="RunManager" selected="npm.start:ui">
     <configuration name="service:serve:development" type="NxRunConfigurationType">
       <option name="nx-projects" value="service" />
       <option name="nx-targets" value="serve" />
@@ -125,16 +139,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start:api" />
         <item itemvalue="npm.start:ui" />
+        <item itemvalue="npm.start:api" />
         <item itemvalue="Docker.appointment-app: Compose Deployment" />
+        <item itemvalue="npm.start:ui" />
+        <item itemvalue="npm.start:api" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.22855.79" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23726.96" />
       </set>
     </attachedChunks>
   </component>
@@ -148,10 +164,17 @@
       <updated>1727469956260</updated>
       <workItem from="1727469957585" duration="1820000" />
       <workItem from="1727471782703" duration="830000" />
-      <workItem from="1727474393565" duration="24830000" />
-      <workItem from="1727706865887" duration="1947000" />
-      <workItem from="1729177410361" duration="9630000" />
-      <workItem from="1730129833178" duration="2418000" />
+      <workItem from="1727474393565" duration="21448000" />
+      <workItem from="1727702248820" duration="95000" />
+      <workItem from="1727702355315" duration="1286000" />
+      <workItem from="1727703903440" duration="365000" />
+      <workItem from="1727705407078" duration="410000" />
+      <workItem from="1727706442038" duration="509000" />
+      <workItem from="1727706998979" duration="717000" />
+      <workItem from="1727817625188" duration="35000" />
+      <workItem from="1729175728061" duration="6717000" />
+      <workItem from="1731153615531" duration="503000" />
+      <workItem from="1731154171144" duration="8644000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Setup">
       <option name="closed" value="true" />
@@ -225,94 +248,19 @@
       <option name="project" value="LOCAL" />
       <updated>1727559439710</updated>
     </task>
-    <task id="LOCAL-00010" summary="Added put">
-      <option name="closed" value="true" />
-      <created>1727561360163</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1727561360163</updated>
-    </task>
-    <task id="LOCAL-00011" summary="added dealer in backend">
-      <option name="closed" value="true" />
-      <created>1729180527565</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1729180527565</updated>
-    </task>
-    <task id="LOCAL-00012" summary="added logic and modals for dealer">
-      <option name="closed" value="true" />
-      <created>1730132077736</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1730132077736</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Moved navbar in own file">
-      <option name="closed" value="true" />
-      <created>1731096405484</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1731096405484</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Moved dealer view in own file">
-      <option name="closed" value="true" />
-      <created>1731101939684</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1731101939684</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Added routes">
-      <option name="closed" value="true" />
-      <created>1731103409386</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1731103409386</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Added user in backend">
-      <option name="closed" value="true" />
-      <created>1731106746065</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1731106746065</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Added Login">
-      <option name="closed" value="true" />
-      <created>1731112887548</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1731112887548</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Added isDealer in token">
-      <option name="closed" value="true" />
-      <created>1731117204342</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1731117204342</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="javascript:npm:prettier" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="com.intellij.configurationType" implementationName="NxRunConfigurationType" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:nx" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:@angular/core" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Basic Setup" />
@@ -324,15 +272,6 @@
     <MESSAGE value="Added frontend and bootstrap" />
     <MESSAGE value="Added post and delete in frontend" />
     <MESSAGE value="Added toast service" />
-    <MESSAGE value="Added put" />
-    <MESSAGE value="added dealer in backend" />
-    <MESSAGE value="added logic and modals for dealer" />
-    <MESSAGE value="Moved navbar in own file" />
-    <MESSAGE value="Moved dealer view in own file" />
-    <MESSAGE value="Added routes" />
-    <MESSAGE value="Added user in backend" />
-    <MESSAGE value="Added Login" />
-    <MESSAGE value="Added isDealer in token" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added isDealer in token" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added toast service" />
   </component>
 </project>
