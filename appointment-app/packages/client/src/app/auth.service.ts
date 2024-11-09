@@ -72,9 +72,7 @@ export class AuthService {
 
     public isDealer(): boolean {
         const parsedData = JSON.parse(<string>localStorage.getItem('currentUser'));
-        const token = parsedData.accessToken;
-        console.log(token);
-        const decodedToken: any = jwtDecode(token);
+        const decodedToken: any = jwtDecode(parsedData.accessToken);
         return decodedToken.isDealer;
     }
 }
