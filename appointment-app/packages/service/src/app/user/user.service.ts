@@ -45,7 +45,7 @@ export class UserService {
             throw new Error('Invalid credentials');
         }
 
-        const payload = { email: user.email, sub: user.id };
+        const payload = { email: user.email, sub: user.id, isDealer: user.isDealer };
         const accessToken = this.jwtService.sign(payload);
 
         return { accessToken };

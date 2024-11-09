@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from 'interfaces';
+import {jwtDecode} from "jwt-decode";
 
 @Injectable({
     providedIn: 'root'
@@ -67,5 +68,13 @@ export class AuthService {
      */
     isAuthenticated(): boolean {
         return !!this.currentUserValue;
+    }
+
+    public isDealer(): boolean {
+        const parsedData = JSON.parse(<string>localStorage.getItem('currentUser'));
+        const token = parsedData.accessToken;
+        console.log(token);
+        const decodedToken: any = jwtDecode(token);
+        return decodedToken.isDealer;
     }
 }
