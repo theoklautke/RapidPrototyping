@@ -1,5 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { Appointment } from "interfaces";
+import { Injectable } from '@nestjs/common';
 
 /**
  * Represents an appointment entity in the database.
@@ -9,6 +10,7 @@ import { Appointment } from "interfaces";
     name: 'appointments',
     schema: 'public'
 })
+@Injectable()
 export class AppointmentEntity implements Appointment {
     /**
      * The unique identifier for the appointment.
