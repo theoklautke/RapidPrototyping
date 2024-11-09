@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added user in backend">
+    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added Login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/nx-welcome.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/login/login.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,11 +283,30 @@
       <option name="project" value="LOCAL" />
       <updated>1731106746065</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added Login">
+      <option name="closed" value="true" />
+      <created>1731112887548</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1731112887548</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Basic Setup" />
@@ -316,6 +325,7 @@
     <MESSAGE value="Moved dealer view in own file" />
     <MESSAGE value="Added routes" />
     <MESSAGE value="Added user in backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added user in backend" />
+    <MESSAGE value="Added Login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Login" />
   </component>
 </project>

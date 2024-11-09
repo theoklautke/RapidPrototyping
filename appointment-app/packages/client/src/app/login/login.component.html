@@ -3,8 +3,10 @@
         <div class="col-md-6 col-lg-4">
             <div class="card shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title text-center mb-4">Login</h5>
-                    <form (ngSubmit)="onLogin()">
+                    <h5 class="card-title text-center mb-4">{{ isRegister ? 'Registrieren' : 'Login' }}</h5>
+
+                    <!-- Login-Formular -->
+                    <form *ngIf="!isRegister" (ngSubmit)="onLogin()">
                         <div class="form-group mb-4">
                             <label for="email" class="form-label">Email</label>
                             <input
@@ -29,9 +31,63 @@
                                     placeholder="Ihr Passwort"
                             />
                         </div>
-
                         <button type="submit" class="btn btn-primary btn-block mb-4 w-100">
                             Login
+                        </button>
+                    </form>
+
+                    <!-- Registrierungsformular -->
+                    <form *ngIf="isRegister" (ngSubmit)="onRegister()">
+                        <div class="form-group mb-4">
+                            <label for="firstname" class="form-label">Vorname</label>
+                            <input
+                                    type="text"
+                                    id="firstname"
+                                    class="form-control"
+                                    [(ngModel)]="firstname"
+                                    name="firstname"
+                                    required
+                                    placeholder="Ihr Vorname"
+                            />
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="lastname" class="form-label">Nachname</label>
+                            <input
+                                    type="text"
+                                    id="lastname"
+                                    class="form-control"
+                                    [(ngModel)]="lastname"
+                                    name="lastname"
+                                    required
+                                    placeholder="Ihr Nachname"
+                            />
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="email" class="form-label">Email</label>
+                            <input
+                                    type="email"
+                                    id="email"
+                                    class="form-control"
+                                    [(ngModel)]="email"
+                                    name="email"
+                                    required
+                                    placeholder="Ihre Email-Adresse"
+                            />
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="password" class="form-label">Passwort</label>
+                            <input
+                                    type="password"
+                                    id="password"
+                                    class="form-control"
+                                    [(ngModel)]="password"
+                                    name="password"
+                                    required
+                                    placeholder="Ihr Passwort"
+                            />
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block mb-4 w-100">
+                            Registrieren
                         </button>
                     </form>
 
@@ -39,9 +95,10 @@
                         {{ errorMessage }}
                     </div>
 
-                    <div class="text-center">
-                        <button (click)="onRegister()" class="btn btn-link p-0">
-                            Noch keinen Account? Jetzt registrieren
+                    <!-- Wechsel zwischen Login und Registrierung -->
+                    <div class="text-center mt-3">
+                        <button (click)="toggleForm()" class="btn btn-link p-0">
+                            {{ isRegister ? 'Schon einen Account? Login' : 'Noch keinen Account? Jetzt registrieren' }}
                         </button>
                     </div>
                 </div>

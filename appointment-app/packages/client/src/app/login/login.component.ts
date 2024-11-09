@@ -14,7 +14,11 @@ import {CommonModule} from "@angular/common";
 export class LoginComponent {
     email = '';
     password = '';
+    firstname = '';
+    lastname = '';
+    isDealer = false;
     errorMessage = '';
+    isRegister = false;
 
     constructor(private authService: AuthService, private router: Router) {}
 
@@ -30,6 +34,26 @@ export class LoginComponent {
     }
 
     onRegister() {
-        this.router.navigate(['/register']);
+        const user = {
+            email: this.email,
+            password: this.password,
+            firstname: this.firstname,
+            lastname: this.lastname,
+            isDealer: this.isDealer,
+        };
+
+        this.authService.register(user).subscribe(
+            (response) => {
+                console.log('Benutzer erfolgreich registriert', response);
+                this.toggleForm();
+            },
+            (error) => {
+                this.errorMessage = 'Fehler bei der Registrierung. Bitte versuchen Sie es erneut.';
+            }
+        );
+    }
+
+    toggleForm() {
+        this.isRegister = !this.isRegister;
     }
 }
