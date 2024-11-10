@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Appointment } from 'interfaces';
+import {Appointment, User} from 'interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +20,20 @@ export class AppointmentService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  public createAppointment(appointment: Appointment): Observable<Appointment> {
+  public createAppointment(appointment: {
+      date: string;
+      vehicleOwner: User | undefined;
+      assignment: string;
+      time: string;
+      branch: string;
+      vehicleRegNo: string;
+      status: string
+  }): Observable<Appointment> {
     return this.http.post<Appointment>(this.apiUrl, appointment);
   }
 
   public updateAppointment(id: number, appointment: Appointment): Observable<Appointment> {
+      console.log(appointment)
     return this.http.put<Appointment>(`${this.apiUrl}/${appointment.id}`, appointment);
   }
 }

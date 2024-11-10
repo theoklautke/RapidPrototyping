@@ -16,39 +16,70 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let appointment of appointmentList">
-                    <td>{{ appointment.assignment }}</td>
-                    <td>{{ appointment.branch }}</td>
-                    <td>{{ appointment.vehicleOwner }}</td>
-                    <td>{{ appointment.vehicleRegNo }}</td>
-                    <td>{{ appointment.status }}</td>
-                    <td>{{ appointment.date }}</td>
-                    <td>{{ appointment.time }} Uhr</td>
-                    <td>
-                        <button (click)="openEditModalAppointment(editAppointmentModal, appointment)"
-                                class="btn btn-sm edit-btn">
-                            <i class="bi bi-pencil-square"></i>
-                        </button>
-                    </td>
-                    <td>
-                        <button (click)="deleteAppointment(appointment.id)" class="btn btn-sm delete-btn">
-                            <i class="bi bi-trash3-fill"></i>
-                        </button>
-                    </td>
-                </tr>
+                <!-- For Dealer users -->
+                <ng-container *ngIf="this.authService.isDealer()">
+                    <tr *ngFor="let appointment of appointmentList">
+                        <td>{{ appointment.assignment }}</td>
+                        <td>{{ appointment.branch }}</td>
+                        <td>
+                            {{ appointment.vehicleOwner?.firstname || 'Unbekannt' }} {{ appointment.vehicleOwner?.lastname || 'Unbekannt' }}
+                        </td>
+                        <td>{{ appointment.vehicleRegNo }}</td>
+                        <td>{{ appointment.status }}</td>
+                        <td>{{ appointment.date }}</td>
+                        <td>{{ appointment.time }} Uhr</td>
+                        <td>
+                            <button (click)="openEditModalAppointment(editAppointmentModal, appointment)" class="btn btn-sm edit-btn">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button (click)="deleteAppointment(appointment.id)" class="btn btn-sm delete-btn">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </ng-container>
+
+                <!-- For Non-Dealer users -->
+                <ng-container *ngIf="!this.authService.isDealer()">
+                    <tr *ngFor="let appointment of filteredAppointments">
+                        <td>{{ appointment.assignment }}</td>
+                        <td>{{ appointment.branch }}</td>
+                        <td>
+                            {{ appointment.vehicleOwner?.firstname || 'Unbekannt' }} {{ appointment.vehicleOwner?.lastname || 'Unbekannt' }}
+                        </td>
+                        <td>{{ appointment.vehicleRegNo }}</td>
+                        <td>{{ appointment.status }}</td>
+                        <td>{{ appointment.date }}</td>
+                        <td>{{ appointment.time }} Uhr</td>
+                        <td>
+                            <button (click)="openEditModalAppointment(editAppointmentModal, appointment)" class="btn btn-sm edit-btn">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button (click)="deleteAppointment(appointment.id)" class="btn btn-sm delete-btn">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </ng-container>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div class="row my-3">
+    <div class="row my-3" *ngIf="!this.authService.isDealer()">
         <div class="col">
-            <button (click)="open(addAppointmentModal)" class="btn btn-sm btn-outline-primary"><i
-                    class="bi bi-plus-circle"></i> Appointment
+            <button (click)="open(addAppointmentModal)" class="btn btn-sm btn-outline-primary">
+                <i class="bi bi-plus-circle"></i> Appointment
             </button>
         </div>
     </div>
 </div>
+
+
 
 <ng-template #addAppointmentModal let-modal>
     <div class="modal-header">
@@ -66,11 +97,6 @@
             <div class="mb-3">
                 <label class="form-label" for="branch-add">Branch</label>
                 <input [(ngModel)]="newAppointment.branch" class="form-control" id="branch-add" name="branch"
-                       required type="text">
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="vehicleOwner-add">Vehicle Owner</label>
-                <input [(ngModel)]="newAppointment.vehicleOwner" class="form-control" id="vehicleOwner-add" name="vehicleOwner"
                        required type="text">
             </div>
             <div class="mb-3">
@@ -119,11 +145,6 @@
             <div class="mb-3">
                 <label class="form-label" for="branch">Branch</label>
                 <input [(ngModel)]="selectedAppointment.branch" class="form-control" id="branch" name="branch"
-                       required type="text">
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="vehicleOwner">Vehicle Owner</label>
-                <input [(ngModel)]="selectedAppointment.vehicleOwner" class="form-control" id="vehicleOwner" name="vehicleOwner"
                        required type="text">
             </div>
             <div class="mb-3">

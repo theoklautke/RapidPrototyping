@@ -17,5 +17,8 @@ export class NavbarComponent implements OnInit {
     ngOnInit(): void {
         console.log(this.authService.isDealer());
 
+        this.authService.currentUser.subscribe(user => {
+            console.log(user)
+        })
     }
 }

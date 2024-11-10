@@ -28,6 +28,7 @@ export class UserSeeder {
                     password: 'StrongPassword123!',
                     isDealer: false,
                     id: 0,
+                    appointments: []
                 },
                 {
                     firstname: 'Alice',
@@ -36,6 +37,7 @@ export class UserSeeder {
                     password: 'SecurePassword456!',
                     isDealer: true,
                     id: 0,
+                    appointments: []
                 },
                 {
                     firstname: 'Bob',
@@ -44,6 +46,7 @@ export class UserSeeder {
                     password: 'Pass1234!',
                     isDealer: false,
                     id: 0,
+                    appointments: []
                 },
             ];
 

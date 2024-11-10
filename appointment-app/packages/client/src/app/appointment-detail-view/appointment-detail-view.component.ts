@@ -1,10 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AppointmentService} from "../appointment.service";
-import {Appointment} from "interfaces";
+import {Appointment, User} from "interfaces";
 import {NgbInputDatepicker, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import 'bootstrap';
 import {FormsModule} from "@angular/forms";
+import {UserService} from "../user.service";
+import {AuthService} from "../auth.service";
 
 @Component({
     selector: 'app-appointment-detail-view',
@@ -16,10 +18,18 @@ import {FormsModule} from "@angular/forms";
 export class AppointmentDetailViewComponent implements OnInit {
 
     public appointmentList: Appointment[] = [];
-    public newAppointment: Appointment = {
+    public newAppointment: {
+        date: string;
+        vehicleOwner: User | undefined;
+        assignment: string;
+        time: string;
+        branch: string;
+        vehicleRegNo: string;
+        status: string
+    } = {
         assignment: '',
         branch: '',
-        vehicleOwner: '',
+        vehicleOwner: {} as User,
         vehicleRegNo: '',
         status: '',
         date: '',
@@ -27,17 +37,28 @@ export class AppointmentDetailViewComponent implements OnInit {
     };
 
     public selectedAppointment: Appointment | null = null;
+    public filteredAppointments: Appointment[] = [];
     public toastMessage: string | null = null;
+    public usersList: User[] = [];
+    public user: any = null;
 
     constructor(
         private readonly appointmentService: AppointmentService,
-        private readonly modalService: NgbModal) {
+        private readonly userService: UserService,
+        private readonly modalService: NgbModal,
+        protected readonly authService: AuthService) {
     }
 
     public ngOnInit(): void {
         this.appointmentService.getAppointments().subscribe(appointments => {
             this.appointmentList = appointments;
+            this.filterAppointments();
         });
+
+        this.userService.getUsers().subscribe(users => {
+            this.usersList = users;
+        });
+
     }
 
     public open(modal: any): void {
@@ -45,39 +66,54 @@ export class AppointmentDetailViewComponent implements OnInit {
     }
 
     public openEditModalAppointment(modal: any, appointment: Appointment): void {
-        this.selectedAppointment = {...appointment};  // Clone the selected appointment for editing
+        this.selectedAppointment = {...appointment};
         this.modalService.open(modal);
     }
 
-    public deleteAppointment(appointmentId: number | undefined): void {
-        if (appointmentId !== undefined) {
+    public deleteAppointment(appointmentId: number): void {
+        if (appointmentId) {
             this.appointmentList = this.appointmentList.filter(x => x.id !== appointmentId);
-            this.appointmentService.deleteAppointment(appointmentId).subscribe(() => {
-                this.showToast('Appointment deleted successfully');
+
+            this.filteredAppointments = this.filteredAppointments.filter(x => x.id !== appointmentId);
+
+            this.appointmentService.deleteAppointment(appointmentId).subscribe({
+                next: () => {
+                    this.showToast('Appointment deleted successfully');
+                },
+                error: (err) => {
+                    this.showToast('Error deleting appointment');
+                    console.error('Delete appointment failed', err);
+                }
             });
+        } else {
+            this.showToast('Invalid appointment ID');
         }
     }
 
+
     public saveAppointment(modal: any): void {
         if (this.newAppointment.assignment && this.newAppointment.branch &&
-            this.newAppointment.vehicleOwner && this.newAppointment.vehicleRegNo &&
-            this.newAppointment.status && this.newAppointment.date && this.newAppointment.time) {
+            this.newAppointment.vehicleRegNo && this.newAppointment.status && this.newAppointment.date && this.newAppointment.time) {
 
-            this.appointmentService.createAppointment(this.newAppointment).subscribe(savedAppointment => {
-                this.appointmentList.push(savedAppointment);
+            const mailOfUser = this.authService.getMailFromJWT();
+            this.userService.getUsers().subscribe(users => {
+                this.newAppointment.vehicleOwner = users.find(user => user.email === mailOfUser);
+                this.appointmentService.createAppointment(this.newAppointment).subscribe(savedAppointment => {
+                    this.appointmentList.push(savedAppointment);
 
-                this.newAppointment = {
-                    assignment: '',
-                    branch: '',
-                    vehicleOwner: '',
-                    vehicleRegNo: '',
-                    status: '',
-                    date: '',
-                    time: ''
-                };
-
-                this.showToast('Appointment created successfully');
-                modal.close();
+                    this.newAppointment = {
+                        assignment: '',
+                        branch: '',
+                        vehicleOwner: {} as User,
+                        vehicleRegNo: '',
+                        status: '',
+                        date: '',
+                        time: ''
+                    };
+                    this.showToast('Appointment created successfully');
+                    modal.close();
+                    this.filteredAppointments.push(savedAppointment);
+                });
             });
         }
     }
@@ -85,17 +121,44 @@ export class AppointmentDetailViewComponent implements OnInit {
     public updateAppointment(modal: any): void {
         if (this.selectedAppointment && this.selectedAppointment.id) {
             this.appointmentService.updateAppointment(this.selectedAppointment.id, this.selectedAppointment).subscribe(updatedAppointment => {
+
+                this.selectedAppointment = updatedAppointment;
+
                 const index = this.appointmentList.findIndex(app => app.id === updatedAppointment.id);
                 if (index !== -1) {
-                    this.appointmentList[index] = updatedAppointment; // Update the appointment in the list
+                    this.appointmentList[index] = { ...updatedAppointment };
+                }
+
+                const filteredIndex = this.filteredAppointments.findIndex(app => app.id === updatedAppointment.id);
+                if (filteredIndex !== -1) {
+                    this.filteredAppointments[filteredIndex] = { ...updatedAppointment };
                 }
 
                 this.showToast('Appointment updated successfully');
                 modal.close();
-                this.selectedAppointment = null; // Clear the selection
+                this.selectedAppointment = null;
+                window.location.reload();
+            }, error => {
+                this.showToast('Error updating appointment');
+                console.error('Update appointment failed', error);
             });
+        } else {
+            this.showToast('Appointment not selected');
         }
     }
+
+
+
+    private filterAppointments(): void {
+        const userEmail = this.authService.getMailFromJWT();
+        console.log(this.appointmentList)
+        console.log(userEmail)
+        this.filteredAppointments = this.appointmentList.filter(appointment => {
+            console.log(appointment)
+            return appointment.vehicleOwner.email === userEmail;
+        });
+    }
+
 
     public closeToast(): void {
         this.toastMessage = null;

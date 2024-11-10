@@ -75,4 +75,10 @@ export class AuthService {
         const decodedToken: any = jwtDecode(parsedData.accessToken);
         return decodedToken.isDealer;
     }
+
+    public getMailFromJWT(): string{
+        const parsedData = JSON.parse(<string>localStorage.getItem('currentUser'));
+        const decodedToken: any = jwtDecode(parsedData.accessToken);
+        return decodedToken.email;
+    }
 }

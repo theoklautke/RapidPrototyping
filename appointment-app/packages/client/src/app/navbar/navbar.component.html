@@ -26,6 +26,17 @@
                 </li>
             </ul>
         </div>
-        <button class="btn btn-outline-primary my-2 my-sm-0" *ngIf="this.authService.isAuthenticated()" (click)="authService.logout()">Logout</button>
+        <div class="my-2 my-sm-0" *ngIf="this.authService.isAuthenticated()">
+            <div class="d-flex">
+                <span class="fw-bold">{{this.authService.getMailFromJWT()}}</span>
+                <div *ngIf="!this.authService.isDealer()" class="ms-2 text-muted">
+                    (Kunde)
+                </div>
+                <div *ngIf="this.authService.isDealer()" class="ms-2 text-muted">
+                    (Händler)
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-outline-primary my-2 my-sm-0 ms-2" *ngIf="this.authService.isAuthenticated()" (click)="authService.logout()">Logout</button>
     </div>
 </nav>
