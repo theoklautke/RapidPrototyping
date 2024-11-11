@@ -11,14 +11,6 @@ import {AuthService} from "../auth.service";
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
     constructor(protected readonly authService: AuthService) {}
-
-    ngOnInit(): void {
-        console.log(this.authService.isDealer());
-
-        this.authService.currentUser.subscribe(user => {
-            console.log(user)
-        })
-    }
 }

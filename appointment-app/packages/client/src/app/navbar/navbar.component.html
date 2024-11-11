@@ -16,10 +16,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item" *ngIf="this.authService.isAuthenticated()">
-                    <a class="nav-link" routerLink="/appointment" routerLinkActive="active">Appointments</a>
+                    <a class="nav-link" routerLink="/appointment" routerLinkActive="active">Termine</a>
                 </li>
                 <li class="nav-item" *ngIf="this.authService.isAuthenticated() && this.authService.isDealer()">
-                    <a class="nav-link" routerLink="/dealer" routerLinkActive="active">Dealer</a>
+                    <a class="nav-link" routerLink="/dealer" routerLinkActive="active">Händler</a>
                 </li>
                 <li class="nav-item" *ngIf="this.authService.isAuthenticated() && this.authService.isDealer()">
                   <a class="nav-link" routerLink="/calender" routerLinkActive="active">Kalender</a>

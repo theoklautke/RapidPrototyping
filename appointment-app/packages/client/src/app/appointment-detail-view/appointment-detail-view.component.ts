@@ -151,14 +151,10 @@ export class AppointmentDetailViewComponent implements OnInit {
 
     private filterAppointments(): void {
         const userEmail = this.authService.getMailFromJWT();
-        console.log(this.appointmentList)
-        console.log(userEmail)
         this.filteredAppointments = this.appointmentList.filter(appointment => {
-            console.log(appointment)
             return appointment.vehicleOwner.email === userEmail;
         });
     }
-
 
     public closeToast(): void {
         this.toastMessage = null;

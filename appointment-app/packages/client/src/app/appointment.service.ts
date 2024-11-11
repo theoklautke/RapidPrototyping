@@ -33,7 +33,6 @@ export class AppointmentService {
   }
 
   public updateAppointment(id: number, appointment: Appointment): Observable<Appointment> {
-      console.log(appointment)
     return this.http.put<Appointment>(`${this.apiUrl}/${appointment.id}`, appointment);
   }
 }
