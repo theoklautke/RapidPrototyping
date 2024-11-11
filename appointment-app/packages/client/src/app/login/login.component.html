@@ -49,6 +49,9 @@
                                     required
                                     placeholder="Ihr Vorname"
                             />
+                            <div *ngIf="errorMessageFirstname" class="alert alert-danger mt-3">
+                                {{ errorMessageFirstname }}
+                            </div>
                         </div>
                         <div class="form-group mb-4">
                             <label for="lastname" class="form-label">Nachname</label>
@@ -61,6 +64,9 @@
                                     required
                                     placeholder="Ihr Nachname"
                             />
+                            <div *ngIf="errorMessageLastname" class="alert alert-danger mt-3">
+                                {{ errorMessageLastname }}
+                            </div>
                         </div>
                         <div class="form-group mb-4">
                             <label for="email" class="form-label">Email</label>
@@ -73,6 +79,9 @@
                                     required
                                     placeholder="Ihre Email-Adresse"
                             />
+                            <div *ngIf="errorMessageEmail" class="alert alert-danger mt-3">
+                                {{ errorMessageEmail }}
+                            </div>
                         </div>
                         <div class="form-group mb-4">
                             <label for="password" class="form-label">Passwort</label>
@@ -85,6 +94,9 @@
                                     required
                                     placeholder="Ihr Passwort"
                             />
+                            <div *ngIf="errorMessagePassword" class="alert alert-danger mt-3">
+                                {{ errorMessagePassword }}
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block mb-4 w-100">
                             Registrieren

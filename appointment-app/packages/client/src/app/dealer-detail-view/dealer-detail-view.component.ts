@@ -4,6 +4,7 @@ import {NgbInputDatepicker, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
 import {Dealer} from "interfaces";
 import {DealerService} from "../dealer.service";
+import {shared} from "shared";
 
 @Component({
     selector: 'app-dealer-detail-view',
