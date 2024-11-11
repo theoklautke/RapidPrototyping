@@ -52,6 +52,10 @@ export class AppointmentDetailViewComponent implements OnInit {
         protected readonly authService: AuthService) {
     }
 
+    /**
+     * Initializes the component by loading the appointment and user lists.
+     * Filters appointments based on the current user's email.
+     */
     public ngOnInit(): void {
         this.appointmentService.getAppointments().subscribe(appointments => {
             this.appointmentList = appointments;
@@ -62,21 +66,38 @@ export class AppointmentDetailViewComponent implements OnInit {
             this.usersList = users;
         });
 
+        // Set the current date and time as default values for the new appointment
+        const now = new Date();
+        this.newAppointment.date = now.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+        this.newAppointment.time = this.formatTime(now); // Format as HH:mm
     }
 
+    /**
+     * Opens a given modal window.
+     * @param modal - The modal to be opened.
+     */
     public open(modal: any): void {
         this.modalService.open(modal);
     }
 
+    /**
+     * Opens the edit modal for a specific appointment, pre-filling it with the appointment's details.
+     * @param modal - The modal to be opened.
+     * @param appointment - The appointment to be edited.
+     */
     public openEditModalAppointment(modal: any, appointment: Appointment): void {
         this.selectedAppointment = {...appointment};
         this.modalService.open(modal);
     }
 
+    /**
+     * Deletes an appointment by its ID and removes it from the appointment list.
+     * Displays a toast message upon success or failure.
+     * @param appointmentId - The ID of the appointment to be deleted.
+     */
     public deleteAppointment(appointmentId: number): void {
         if (appointmentId) {
             this.appointmentList = this.appointmentList.filter(x => x.id !== appointmentId);
-
             this.filteredAppointments = this.filteredAppointments.filter(x => x.id !== appointmentId);
 
             this.appointmentService.deleteAppointment(appointmentId).subscribe({
@@ -93,7 +114,11 @@ export class AppointmentDetailViewComponent implements OnInit {
         }
     }
 
-
+    /**
+     * Saves a new appointment after validating the input fields.
+     * If the validation is successful, the appointment is created and added to the list.
+     * @param modal - The modal to be closed upon success.
+     */
     public saveAppointment(modal: any): void {
         if (!isNotEmpty(this.newAppointment.assignment)) {
             this.errorMessageAssignment = "Nachname darf nicht leer sein";
@@ -133,6 +158,11 @@ export class AppointmentDetailViewComponent implements OnInit {
         }
     }
 
+    /**
+     * Updates an existing appointment after validating the input fields.
+     * If the validation is successful, the appointment is updated in the list.
+     * @param modal - The modal to be closed upon success.
+     */
     public updateAppointment(modal: any): void {
         if (!isNotEmpty(this.newAppointment.assignment)) {
             this.errorMessageAssignment = "Nachname darf nicht leer sein";
@@ -174,8 +204,9 @@ export class AppointmentDetailViewComponent implements OnInit {
         }
     }
 
-
-
+    /**
+     * Filters appointments to show only those related to the current user based on their email.
+     */
     private filterAppointments(): void {
         const userEmail = this.authService.getMailFromJWT();
         this.filteredAppointments = this.appointmentList.filter(appointment => {
@@ -183,16 +214,28 @@ export class AppointmentDetailViewComponent implements OnInit {
         });
     }
 
+    /**
+     * Closes the toast message.
+     */
     public closeToast(): void {
         this.toastMessage = null;
     }
 
+    /**
+     * Displays a toast message for a specified duration.
+     * @param message - The message to be displayed in the toast.
+     */
     private showToast(message: string): void {
         this.toastMessage = message;
         setTimeout(() => this.closeToast(), 5000);
     }
 
-    public  getStatusDisplay(status: string): string {
+    /**
+     * Converts a status string to its display representation in German.
+     * @param status - The status string to be displayed.
+     * @returns The status in German.
+     */
+    public getStatusDisplay(status: string): string {
         const statusMap: { [key: string]: string } = {
             OPEN: 'Offen',
             IN_PROGRESS: 'In Bearbeitung',
@@ -201,5 +244,9 @@ export class AppointmentDetailViewComponent implements OnInit {
         return (statusMap)[status] || status;
     }
 
-
+    formatTime(date: Date): string {
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        return `${hours}:${minutes}`;
+    }
 }

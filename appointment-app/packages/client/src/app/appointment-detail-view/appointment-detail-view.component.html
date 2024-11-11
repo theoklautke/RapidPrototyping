@@ -10,7 +10,7 @@
                     <th>Kennzeichen</th>
                     <th>Status</th>
                     <th>Datum</th>
-                    <th>Zeit</th>
+                    <th>Uhrzeit</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -118,7 +118,7 @@
                 <input [(ngModel)]="newAppointment.date" class="form-control" id="date-add" name="date" required type="date">
             </div>
             <div class="mb-3">
-                <label class="form-label" for="time-add">Zeit</label>
+                <label class="form-label" for="time-add">Uhrzeit</label>
                 <input [(ngModel)]="newAppointment.time" class="form-control" id="time-add" name="time" required type="time">
             </div>
         </form>
@@ -162,7 +162,7 @@
                 <input [(ngModel)]="selectedAppointment.date" class="form-control" id="date" name="date" required type="date">
             </div>
             <div class="mb-3">
-                <label class="form-label" for="time">Zeit</label>
+                <label class="form-label" for="time">Uhrzeit</label>
                 <input [(ngModel)]="selectedAppointment.time" class="form-control" id="time" name="time" required type="time">
             </div>
         </form>
