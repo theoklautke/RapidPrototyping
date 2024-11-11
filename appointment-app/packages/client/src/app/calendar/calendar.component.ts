@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 import * as bootstrap from 'bootstrap';
 
 
-declare const window: any;
+
 
 @Component({
   standalone: true,
