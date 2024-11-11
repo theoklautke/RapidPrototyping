@@ -1,98 +1,54 @@
-/* Calendar-specific styles */
-
-/* Dunklere Trennstriche im Kalender */
-.fc-theme-standard .fc-scrollgrid,
-.fc-theme-standard td,
-.fc-theme-standard th {
-  border-color: #333; /* Dunklere Farbe für die Trennstriche */
+/* Kalender Container - schmaler gestalten */
+.calendar-container {
+  width: 80%; /* Breite des Containers auf 80% des Viewports reduzieren */
+  height: calc(100vh - 150px); /* Höhe unverändert lassen */
+  margin: 20px auto; /* Abstand an den Seiten und oben/unten für eine mittige Platzierung */
+  padding: 10px; /* Polsterung für ästhetische Zwecke */
+  background-color: #ffffff; /* Hintergrundfarbe */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten für mehr Tiefe */
+  border-radius: 10px; /* Abgerundete Ecken */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Datumszahlen in Schwarz und fett */
-.fc-daygrid-day-number {
-  color: #000;       /* Farbe für die Datumszahlen auf Schwarz setzen */
-  font-weight: bold; /* Fettgedruckt */
+/* Kalender */
+.full-calendar {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
-/* Wochentagsnamen in Schwarz und fett */
+/* Kalender Widget */
+.fc {
+  width: 100%;
+  height: calc(100vh - 180px); /* Kalenderhöhe: gesamte Fensterhöhe minus Platz für andere Inhalte */
+  max-width: 100%;
+  overflow: hidden; /* Verhindert unnötiges Scrollen */
+}
+
+/* Anpassungen für Tageszellen im Kalender */
+.fc-daygrid-day {
+  background-color: #f8f9fa; /* Helles Grau für bessere Übersicht */
+  min-height: 100px; /* Mindesthöhe für die Kalenderzellen */
+  height: 100px; /* Festgesetzte Höhe für alle Tageszellen, um Gleichmäßigkeit zu bewahren */
+  overflow: hidden; /* Verhindert, dass der Inhalt die Höhe der Zellen beeinflusst */
+}
+
+/* Wochenüberschriften in Schwarz und fett */
 .fc-theme-standard .fc-col-header-cell-cushion {
   color: #000;       /* Farbe auf Schwarz setzen */
   font-weight: bold; /* Fettgedruckt */
 }
 
-/* Hintergrundfarbe für alle Wochentage auf helles Grau setzen */
 .fc-theme-standard .fc-col-header-cell {
   background-color: #e0e0e0; /* Helles Grau */
 }
 
-/* Hintergrundfarbe für alle Kalendertage im Monat auf ein helles Grau setzen */
-.fc-daygrid-day {
-  background-color: #f8f9fa; /* Sehr helles Grau */
-  min-height: 120px; /* Mindesthöhe für die Kalenderzellen, um ausreichend Platz für Events zu bieten */
-}
-
-/* Hintergrundfarbe für den aktuellen Tag auf ein helles Blau setzen */
+/* Hintergrundfarbe für den aktuellen Tag */
 .fc-day-today {
-  background-color: #cfe3ff !important; /* Hellblauer Hintergrund für den heutigen Tag */
-}
-
-/* Konstante Höhe für alle Kalenderzeilen */
-.fc-daygrid-day-frame {
-  height: 80px; /* Setze die maximale Höhe für die Zellen */
-  overflow: hidden; /* Überschüssiger Inhalt wird versteckt */
-}
-
-/* Events innerhalb der Tageszellen */
-.fc-daygrid-event {
-  max-height: 50px; /* Setze eine maximale Höhe für Events, damit die Zelle nicht größer wird */
-  overflow: hidden; /* Überschüssiger Text wird abgeschnitten */
-  white-space: nowrap; /* Kein Zeilenumbruch, um die Höhe konstant zu halten */
-}
-
-/* Für mehr als 1 Event Scrollen erlauben */
-.fc-daygrid-day-events {
-  max-height: 70px; /* Maximaler Platz für die Events */
-  overflow-y: auto; /* Scrollbar, falls es zu viele Events gibt */
-}
-
-/* Container für den Kalender */
-.container .full-calendar-container {
-  width: 90%; /* 90% der Breite des Viewports */
-  height: calc(100vh - 200px); /* Die Höhe auf fast den gesamten Viewport minus Platz für den Header/Fußzeile */
-  margin: 20px auto; /* Abstand an den Seiten und oben/unten für eine mittige Platzierung */
-  padding: 20px; /* Zusätzliche Polsterung für ästhetische Zwecke */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff; /* Hintergrundfarbe, um den Kalender von der Umgebung abzuheben */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Schatten, um dem Container mehr Tiefe zu verleihen */
-  border-radius: 10px; /* Abgerundete Ecken */
-}
-
-/* Stellt sicher, dass der Full Calendar Wrapper die ganze Fläche einnimmt */
-.full-calendar {
-  width: 100%;
-  height: 100%;
-}
-
-/* Anpassungen für das Kalender Widget */
-.fc {
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  overflow: hidden; /* Verhindert unnötiges Scrollen */
-}
-
-/* Highlight für den aktuellen Tag */
-.fc-day-today {
-  background-color: #e7f1ff; /* Hellblauer Hintergrund für den heutigen Tag */
-}
-
-/* Anpassungen für die Wochenüberschriften */
-.fc-col-header-cell {
-  background-color: #f8f9fa; /* Helle graue Hintergrundfarbe für die Wochenüberschriften */
-  color: black; /* Schwarze Schriftfarbe */
-  font-weight: bold; /* Fettgedruckt für mehr Sichtbarkeit */
+  background-color: #e7f1ff !important; /* Hellblauer Hintergrund für den heutigen Tag */
 }
 
 /* Style für Events */
@@ -102,9 +58,29 @@
   background-color: #007bff; /* Primäre Farbe für Events */
   color: white; /* Weißer Text für bessere Lesbarkeit */
   border: none;
+  overflow: hidden; /* Verhindert, dass Events die Höhe der Zellen beeinflussen */
+  white-space: nowrap; /* Kein Zeilenumbruch */
+  text-overflow: ellipsis; /* "..." anzeigen, wenn der Text zu lang ist */
 }
 
-/* Anpassungen für Trennlinien */
-.fc-scrollgrid, .fc-scrollgrid-sync-inner {
-  border-color: #b0b0b0; /* Dunkleres Grau für die Zellen-Trennlinien */
+/* Trennlinien im Kalender */
+.fc-theme-standard .fc-scrollgrid,
+.fc-theme-standard td,
+.fc-theme-standard th,
+.fc-scrollgrid,
+.fc-scrollgrid-sync-inner {
+  border-color: #666; /* Etwas dunklere Farbe für die Trennlinien */
+  border-width: 1.5px; /* Etwas dickere Trennlinien für bessere Sichtbarkeit */
+}
+
+/* Anpassungen für Event-Container innerhalb der Zellen */
+.fc-daygrid-day-events {
+  max-height: 90px; /* Maximale Höhe für die Events, damit die Zellen nicht zu groß werden */
+  overflow-y: auto; /* Scrollbar anzeigen, falls es zu viele Events gibt */
+}
+
+/* Sicherstellen, dass die Tageszahlen immer schwarz sind und fett dargestellt werden */
+.fc-daygrid-day-number {
+  color: #000; /* Farbe für die Datumszahlen */
+  font-weight: bold; /* Fettgedruckt für bessere Sichtbarkeit */
 }
