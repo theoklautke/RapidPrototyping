@@ -31,7 +31,7 @@ export class AppointmentDetailViewComponent implements OnInit {
         branch: '',
         vehicleOwner: {} as User,
         vehicleRegNo: '',
-        status: '',
+        status: 'OPEN',
         date: '',
         time: ''
     };
@@ -106,7 +106,7 @@ export class AppointmentDetailViewComponent implements OnInit {
                         branch: '',
                         vehicleOwner: {} as User,
                         vehicleRegNo: '',
-                        status: '',
+                        status: 'OPEN',
                         date: '',
                         time: ''
                     };

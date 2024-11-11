@@ -11,5 +11,10 @@ export const appRoutes: Route[] = [
     { path: 'dealer', component: DealerDetailViewComponent, canActivate: [AuthGuard] },
     { path: 'calender', component: CalendarComponent, canActivate: [AuthGuard] },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: '**', redirectTo: '/login' }
+    {
+        path: '**',
+        canActivate: [AuthGuard],
+        component: AppointmentDetailViewComponent,
+        data: { redirectTo: '/login' }
+    }
 ];
