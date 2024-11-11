@@ -7,6 +7,7 @@ import 'bootstrap';
 import {FormsModule} from "@angular/forms";
 import {UserService} from "../user.service";
 import {AuthService} from "../auth.service";
+import {isNotEmpty, isValidVehicleRegNo} from "shared";
 
 @Component({
     selector: 'app-appointment-detail-view',
@@ -41,6 +42,8 @@ export class AppointmentDetailViewComponent implements OnInit {
     public toastMessage: string | null = null;
     public usersList: User[] = [];
     public user: any = null;
+    public errorMessageAssignment = '';
+    public errorMessageVehicleRegNo = '';
 
     constructor(
         private readonly appointmentService: AppointmentService,
@@ -92,6 +95,18 @@ export class AppointmentDetailViewComponent implements OnInit {
 
 
     public saveAppointment(modal: any): void {
+        if (!isNotEmpty(this.newAppointment.assignment)) {
+            this.errorMessageAssignment = "Nachname darf nicht leer sein";
+        } else {
+            this.errorMessageAssignment = "";
+        }
+
+        if (!isValidVehicleRegNo(this.newAppointment.vehicleRegNo)) {
+            this.errorMessageVehicleRegNo = "Kennzeichen ist nicht valide (Bsp.: \"M-XY 5678\", \"B-A 123\", \"HH-AB 1234\")";
+        } else {
+            this.errorMessageVehicleRegNo = "";
+        }
+
         if (this.newAppointment.assignment && this.newAppointment.branch &&
             this.newAppointment.vehicleRegNo && this.newAppointment.status && this.newAppointment.date && this.newAppointment.time) {
 
@@ -119,6 +134,18 @@ export class AppointmentDetailViewComponent implements OnInit {
     }
 
     public updateAppointment(modal: any): void {
+        if (!isNotEmpty(this.newAppointment.assignment)) {
+            this.errorMessageAssignment = "Nachname darf nicht leer sein";
+        } else {
+            this.errorMessageAssignment = "";
+        }
+
+        if (!isValidVehicleRegNo(this.newAppointment.vehicleRegNo)) {
+            this.errorMessageVehicleRegNo = "Kennzeichen ist nicht valide (Bsp.: \"M-XY 5678\", \"B-A 123\", \"HH-AB 1234\")";
+        } else {
+            this.errorMessageVehicleRegNo = "";
+        }
+
         if (this.selectedAppointment && this.selectedAppointment.id) {
             this.appointmentService.updateAppointment(this.selectedAppointment.id, this.selectedAppointment).subscribe(updatedAppointment => {
 
@@ -164,4 +191,15 @@ export class AppointmentDetailViewComponent implements OnInit {
         this.toastMessage = message;
         setTimeout(() => this.closeToast(), 5000);
     }
+
+    public  getStatusDisplay(status: string): string {
+        const statusMap: { [key: string]: string } = {
+            OPEN: 'Offen',
+            IN_PROGRESS: 'In Bearbeitung',
+            COMPLETED: 'Beendet'
+        };
+        return (statusMap)[status] || status;
+    }
+
+
 }

@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Body, Param, Put, Delete, ParseIntPipe } from '@nestjs/common';
+import {Controller, Get, Post, Body, Param, Put, Delete, ParseIntPipe, HttpException, HttpStatus} from '@nestjs/common';
 import { AppointmentService } from './appointment.service';
 import { ApiTags, ApiResponse, ApiOperation } from '@nestjs/swagger';
 import { Appointment } from "interfaces";
 import {AppointmentEntity} from "./appointment.entity";
+import {isNotEmpty, isValidStatus, isValidVehicleRegNo} from "shared";
 
 @ApiTags('appointments')
 @Controller('appointment')
@@ -19,19 +20,35 @@ export class AppointmentController {
     @Post()
     @ApiOperation({ summary: 'Create a new appointment' })
     @ApiResponse({ status: 201, description: 'The appointment has been successfully created.', type: Appointment })
+    @ApiResponse({ status: 400, description: 'Invalid input data.' })
     public async createAppointment(
         @Body() appointmentData: Appointment
     ): Promise<Appointment> {
+        if (!isValidStatus(appointmentData.status)) {
+            throw new HttpException('Status is not valid', HttpStatus.BAD_REQUEST);
+        }
+        if (!isValidVehicleRegNo(appointmentData.vehicleRegNo)) {
+            throw new HttpException('Vehicle registration number is not valid', HttpStatus.BAD_REQUEST);
+        }
+
         return this.appointmentService.createAppointment(appointmentData as Partial<AppointmentEntity>);
     }
 
     @Put(':id')
     @ApiOperation({ summary: 'Update an existing appointment' })
     @ApiResponse({ status: 200, description: 'The appointment has been successfully updated.', type: Appointment })
+    @ApiResponse({ status: 400, description: 'Invalid input data.' })
     public async updateAppointment(
         @Param('id', ParseIntPipe) id: number,
         @Body() appointmentData: Appointment
     ): Promise<Appointment> {
+        if (!isValidStatus(appointmentData.status)) {
+            throw new HttpException('Status is not valid', HttpStatus.BAD_REQUEST);
+        }
+        if (!isValidVehicleRegNo(appointmentData.vehicleRegNo)) {
+            throw new HttpException('Vehicle registration number is not valid', HttpStatus.BAD_REQUEST);
+        }
+
         return this.appointmentService.updateAppointment(id, appointmentData as Partial<AppointmentEntity>);
     }
 

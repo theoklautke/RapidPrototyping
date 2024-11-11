@@ -36,14 +36,42 @@ export function isValidPassword(password: string): boolean {
 }
 
 /**
- * Checks if the given input is a valid name.
- * A valid name is considered one that is not just whitespace and contains at least one non-whitespace character.
+ * Checks if the given input is not empty.
+ * A valid string is considered one that is not just whitespace and contains at least one non-whitespace character.
  *
- * @param input - The name to validate.
- * @returns true if the name is valid, otherwise false.
+ * @param input - The string to validate.
+ * @returns true if the string is valid, otherwise false.
  */
-export function isValidName(input: string): boolean {
+export function isNotEmpty(input: string): boolean {
   const nameRegex = /^\s*\S+/;
   return nameRegex.test(input);
 }
 
+/**
+ * Checks if the provided status is one of the accepted status strings: "OPEN", "IN_PROGRESS", or "COMPLETED".
+ *
+ * @param status - The status string to validate.
+ * @returns true if the status is valid, otherwise false.
+ */
+export function isValidStatus(status: string): boolean {
+  const validStatuses = ["OPEN", "IN_PROGRESS", "COMPLETED"];
+  return validStatuses.includes(status);
+}
+
+/**
+ * Checks if the given vehicle registration number (license plate) is valid.
+ * A valid German license plate format typically follows this pattern:
+ * - Begins with 1-3 uppercase letters for the city/region code (e.g., "M" for Munich).
+ * - Followed by a hyphen ("-").
+ * - After the hyphen, 1-2 uppercase letters as the district code.
+ * - Ends with 1-4 numbers as the unique identifier.
+ *
+ * Examples of valid license plates: "M-XY 5678", "B-A 123", "HH-AB 1234".
+ *
+ * @param vehicleRegNo - The vehicle registration number to validate.
+ * @returns true if the license plate format is valid, otherwise false.
+ */
+export function isValidVehicleRegNo(vehicleRegNo: string): boolean {
+  const regNoRegex = /^[A-Z]{1,3}-[A-Z]{1,2} \d{1,4}$/;
+  return regNoRegex.test(vehicleRegNo);
+}

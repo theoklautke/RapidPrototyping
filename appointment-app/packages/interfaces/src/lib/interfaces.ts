@@ -142,8 +142,8 @@ export class Appointment {
   vehicleRegNo!: string;
 
   @ApiProperty({
-    example: "Repair",
-    description: "The current status of the appointment (e.g., scheduled, completed, canceled).",
+    example: "OPEN",
+    description: "The current status of the appointment (e.g., OPEN, IN_PROGRESS).",
     required: true
   })
   status!: string;

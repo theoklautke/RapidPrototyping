@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
-import {isValidEmail, isValidName, isValidPassword} from "shared";
+import {isValidEmail, isNotEmpty, isValidPassword} from "shared";
 
 @Component({
     selector: 'app-login',
@@ -47,13 +47,13 @@ export class LoginComponent {
             isDealer: this.isDealer,
         };
 
-        if (!isValidName(user.firstname)) {
+        if (!isNotEmpty(user.firstname)) {
             this.errorMessageFirstname = "Vorname darf nicht leer sein";
         } else {
             this.errorMessageFirstname = "";
         }
 
-        if (!isValidName(user.lastname)) {
+        if (!isNotEmpty(user.lastname)) {
             this.errorMessageLastname = "Nachname darf nicht leer sein";
         } else {
             this.errorMessageLastname = "";

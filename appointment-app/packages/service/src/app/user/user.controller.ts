@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Param, Put, Delete, HttpException, HttpSta
 import { UserService } from './user.service';
 import { ApiTags, ApiResponse, ApiOperation } from '@nestjs/swagger';
 import { LoginDto, User } from 'interfaces';
-import {isValidEmail, isValidName, isValidPassword} from "shared";
+import {isValidEmail, isNotEmpty, isValidPassword} from "shared";
 
 @ApiTags('users')
 @Controller('user')
@@ -31,11 +31,11 @@ export class UserController {
     @ApiResponse({ status: 400, description: 'Invalid input data.' })
     public async createUser(@Body() userData: User): Promise<User> {
         // Validate input data
-        if (!isValidName(userData.firstname)) {
+        if (!isNotEmpty(userData.firstname)) {
             throw new HttpException('Firstname cannot be empty', HttpStatus.BAD_REQUEST);
         }
 
-        if (!isValidName(userData.lastname)) {
+        if (!isNotEmpty(userData.lastname)) {
             throw new HttpException('Lastname cannot be empty', HttpStatus.BAD_REQUEST);
         }
 
@@ -68,11 +68,11 @@ export class UserController {
         @Body() userData: User,
     ): Promise<User> {
         // Validate input data
-        if (!isValidName(userData.firstname)) {
+        if (!isNotEmpty(userData.firstname)) {
             throw new HttpException('First name cannot be empty', HttpStatus.BAD_REQUEST);
         }
 
-        if (!isValidName(userData.lastname)) {
+        if (!isNotEmpty(userData.lastname)) {
             throw new HttpException('Last name cannot be empty', HttpStatus.BAD_REQUEST);
         }
 

@@ -1,4 +1,4 @@
-import {isValidEmail, isValidName, isValidPassword, shared} from './shared';
+import {isValidEmail, isNotEmpty, isValidPassword, shared} from './shared';
 
 describe('shared', () => {
   it('should work', () => {
@@ -50,15 +50,15 @@ describe('Validation Functions', () => {
 
   describe('isValidName', () => {
     it('should return true for a valid name', () => {
-      expect(isValidName('John')).toBe(true);
+      expect(isNotEmpty('John')).toBe(true);
     });
 
     it('should return false for a name with only whitespace', () => {
-      expect(isValidName('     ')).toBe(false);
+      expect(isNotEmpty('     ')).toBe(false);
     });
 
     it('should return false for an empty name', () => {
-      expect(isValidName('')).toBe(false);
+      expect(isNotEmpty('')).toBe(false);
     });
   });
 

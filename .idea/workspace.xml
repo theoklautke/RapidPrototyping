@@ -6,11 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added validator for login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer-detail-view/dealer-detail-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer-detail-view/dealer-detail-view.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.seeder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.seeder.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.ts" afterDir="false" />
     </list>
@@ -54,6 +57,7 @@
   "keyToString": {
     "Docker.Start database.executor": "Run",
     "Docker.appointment-app: Compose Deployment.executor": "Run",
+    "Jest.DTO and Model Tests.executor": "Run",
     "Jest.Validation Functions.isValidPassword.executor": "Run",
     "Jest.shared.should work.executor": "Run",
     "Jest.shared.spec.ts.executor": "Run",
@@ -99,6 +103,18 @@
   }
 }]]></component>
   <component name="RunManager" selected="npm.start:ui">
+    <configuration name="DTO and Model Tests" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/appointment-app/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/appointment-app/packages/interfaces" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.spec.ts" />
+      <test-names>
+        <test-name value="DTO and Model Tests" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="Validation Functions.isValidPassword" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/appointment-app/node_modules/jest" />
@@ -109,19 +125,6 @@
       <test-names>
         <test-name value="Validation Functions" />
         <test-name value="isValidPassword" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="shared.should work" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/appointment-app/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/appointment-app/packages/shared" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.spec.ts" />
-      <test-names>
-        <test-name value="shared" />
-        <test-name value="should work" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -172,9 +175,9 @@
       <list>
         <item itemvalue="npm.start:ui" />
         <item itemvalue="npm.start:api" />
+        <item itemvalue="Jest.DTO and Model Tests" />
         <item itemvalue="Jest.Validation Functions.isValidPassword" />
         <item itemvalue="Jest.shared.spec.ts" />
-        <item itemvalue="Jest.shared.should work" />
       </list>
     </recent_temporary>
   </component>
