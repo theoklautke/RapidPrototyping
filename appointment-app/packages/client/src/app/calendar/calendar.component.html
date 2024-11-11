@@ -13,7 +13,7 @@
       <div class="modal-body">
         <p><strong>Zeit:</strong> {{ selectedEvent?.time }}</p>
         <p><strong>Datum:</strong> {{ selectedEvent?.date }}</p>
-        <p><strong>Fahrzeugbesitzer:</strong> {{ selectedEvent?.vehicleOwner }}</p>
+        <p><strong>Fahrzeugbesitzer:</strong> {{ selectedEvent?.vehicleOwner?.firstname }} {{ selectedEvent?.vehicleOwner?.lastname }}</p>
         <p><strong>Niederlassung:</strong> {{ selectedEvent?.branch }}</p>
         <p><strong>Status:</strong> {{ selectedEvent?.status }}</p>
         <p><strong>Beschreibung:</strong> {{ selectedEvent?.assignment }}</p>
@@ -43,10 +43,6 @@
           <div class="mb-3">
             <label for="editDateInput" class="form-label">Datum</label>
             <input type="date" class="form-control" id="editDateInput" [(ngModel)]="selectedEvent.date" name="date">
-          </div>
-          <div class="mb-3">
-            <label for="editVehicleOwnerInput" class="form-label">Fahrzeugbesitzer</label>
-            <input type="text" class="form-control" id="editVehicleOwnerInput" [(ngModel)]="selectedEvent.vehicleOwner" name="vehicleOwner">
           </div>
           <div class="mb-3">
             <label for="editBranchInput" class="form-label">Niederlassung</label>
@@ -83,10 +79,6 @@
           <div class="mb-3">
             <label for="timeInput" class="form-label">Zeit</label>
             <input type="time" class="form-control" id="timeInput" [(ngModel)]="selectedEvent.time" name="time">
-          </div>
-          <div class="mb-3">
-            <label for="vehicleOwnerInput" class="form-label">Fahrzeugbesitzer</label>
-            <input type="text" class="form-control" id="vehicleOwnerInput" [(ngModel)]="selectedEvent.vehicleOwner" name="vehicleOwner">
           </div>
           <div class="mb-3">
             <label for="vehicleRegNoInput" class="form-label">Kennzeichen</label>
