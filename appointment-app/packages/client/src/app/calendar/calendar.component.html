@@ -13,7 +13,7 @@
         <p><strong>Zeit:</strong> {{ selectedEvent?.time }}</p>
         <p><strong>Datum:</strong> {{ selectedEvent?.date }}</p>
         <p><strong>Fahrzeugbesitzer:</strong> {{ selectedEvent?.vehicleOwner?.firstname }} {{ selectedEvent?.vehicleOwner?.lastname }}</p>
-        <p><strong>Niederlassung:</strong> {{ selectedEvent?.branch }}</p>
+        <p><strong>Händler:</strong> {{ selectedEvent?.branch }}</p>
         <p><strong>Status:</strong> {{ selectedEvent?.status }}</p>
         <p><strong>Beschreibung:</strong> {{ selectedEvent?.assignment }}</p>
       </div>
@@ -44,7 +44,7 @@
             <input type="date" class="form-control" id="editDateInput" [(ngModel)]="selectedEvent.date" name="date">
           </div>
           <div class="mb-3">
-            <label for="editBranchInput" class="form-label">Niederlassung</label>
+            <label for="editBranchInput" class="form-label">Händler</label>
             <input type="text" class="form-control" id="editBranchInput" [(ngModel)]="selectedEvent.branch" name="branch">
           </div>
           <div class="mb-3">
@@ -84,7 +84,7 @@
             <input type="text" class="form-control" id="vehicleRegNoInput" [(ngModel)]="selectedEvent.vehicleRegNo" name="vehicleRegNo">
           </div>
           <div class="mb-3">
-            <label for="branchInput" class="form-label">Niederlassung</label>
+            <label for="branchInput" class="form-label">Händler</label>
             <input type="text" class="form-control" id="branchInput" [(ngModel)]="selectedEvent.branch" name="branch">
           </div>
           <div class="mb-3">
