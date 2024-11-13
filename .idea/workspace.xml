@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added Validator">
+    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +50,7 @@
   "keyToString": {
     "Docker.Start database.executor": "Run",
     "Docker.appointment-app: Compose Deployment.executor": "Run",
+    "Jest.AppointmentDetailViewComponent.executor": "Run",
     "Jest.DTO and Model Tests.executor": "Run",
     "Jest.Validation Functions.isValidPassword.executor": "Run",
     "Jest.shared.should work.executor": "Run",
@@ -95,7 +96,24 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/appointment-app/packages/service/src/app/auth" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.start:ui">
+    <configuration name="AppointmentDetailViewComponent" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/appointment-app/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/appointment-app/packages/client" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.spec.ts" />
+      <test-names>
+        <test-name value="AppointmentDetailViewComponent" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="DTO and Model Tests" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/appointment-app/node_modules/jest" />
@@ -119,15 +137,6 @@
         <test-name value="Validation Functions" />
         <test-name value="isValidPassword" />
       </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="shared.spec.ts" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/appointment-app/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/appointment-app/packages/shared" />
-      <envs />
-      <scope-kind value="TEST_FILE" />
-      <test-file value="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.spec.ts" />
       <method v="2" />
     </configuration>
     <configuration name="service:serve:development" type="NxRunConfigurationType">
@@ -168,9 +177,9 @@
       <list>
         <item itemvalue="npm.start:ui" />
         <item itemvalue="npm.start:api" />
+        <item itemvalue="Jest.AppointmentDetailViewComponent" />
         <item itemvalue="Jest.DTO and Model Tests" />
         <item itemvalue="Jest.Validation Functions.isValidPassword" />
-        <item itemvalue="Jest.shared.spec.ts" />
       </list>
     </recent_temporary>
   </component>
@@ -307,7 +316,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731352938193</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Refactor">
+      <option name="closed" value="true" />
+      <created>1731353785577</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1731353785577</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,9 +349,9 @@
     <MESSAGE value="Added post and delete in frontend" />
     <MESSAGE value="Added toast service" />
     <MESSAGE value="ADDED RBAC" />
-    <MESSAGE value="Refactor" />
     <MESSAGE value="Added validator for login" />
     <MESSAGE value="Added Validator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Validator" />
+    <MESSAGE value="Refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor" />
   </component>
 </project>

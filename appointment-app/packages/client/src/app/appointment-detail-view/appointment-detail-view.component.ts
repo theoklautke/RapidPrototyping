@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AppointmentService} from "../appointment.service";
-import {Appointment, User} from "interfaces";
+import {Appointment, Dealer, User} from "interfaces";
 import {NgbInputDatepicker, NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import 'bootstrap';
 import {FormsModule} from "@angular/forms";
 import {UserService} from "../user.service";
 import {AuthService} from "../auth.service";
-import {isNotEmpty, isValidVehicleRegNo} from "shared";
+import {isInOpeningTime, isNotEmpty, isValidVehicleRegNo} from "shared";
+import {DealerService} from "../dealer.service";
 
 @Component({
     selector: 'app-appointment-detail-view',
@@ -44,13 +44,16 @@ export class AppointmentDetailViewComponent implements OnInit {
     public user: any = null;
     public errorMessageAssignment = '';
     public errorMessageVehicleRegNo = '';
+    public errorMessageTime = '';
+    public dealerList: Dealer[] = [];
+    public dealerOpeningHours: string = '';
 
     constructor(
         private readonly appointmentService: AppointmentService,
         private readonly userService: UserService,
         private readonly modalService: NgbModal,
-        protected readonly authService: AuthService) {
-    }
+        private readonly dealerService: DealerService,
+        protected readonly authService: AuthService) {}
 
     /**
      * Initializes the component by loading the appointment and user lists.
@@ -66,7 +69,18 @@ export class AppointmentDetailViewComponent implements OnInit {
             this.usersList = users;
         });
 
-        // Set the current date and time as default values for the new appointment
+        this.dealerService.getDealers().subscribe(dealers => {
+            this.dealerList = dealers;
+            if (this.dealerList.length > 0) {
+                this.newAppointment.branch = this.dealerList[0].city;
+                this.updateOpeningHours();
+            }
+        });
+
+        if (this.selectedAppointment && this.selectedAppointment.branch) {
+            this.updateOpeningHours();
+        }
+
         const now = new Date();
         this.newAppointment.date = now.toISOString().split('T')[0]; // Format as YYYY-MM-DD
         this.newAppointment.time = this.formatTime(now); // Format as HH:mm
@@ -85,8 +99,9 @@ export class AppointmentDetailViewComponent implements OnInit {
      * @param modal - The modal to be opened.
      * @param appointment - The appointment to be edited.
      */
-    public openEditModalAppointment(modal: any, appointment: Appointment): void {
-        this.selectedAppointment = {...appointment};
+    public openEditModalAppointment(modal: any, appointment: any) {
+        this.selectedAppointment = { ...appointment };
+        this.updateOpeningHours();
         this.modalService.open(modal);
     }
 
@@ -132,8 +147,22 @@ export class AppointmentDetailViewComponent implements OnInit {
             this.errorMessageVehicleRegNo = "";
         }
 
+        const selectedDealer = this.dealerList.find(x => x.city === this.newAppointment.branch);
+
+        if (selectedDealer) {
+            if (!isInOpeningTime(selectedDealer.openingTime, selectedDealer.closingTime, this.newAppointment.time)) {
+                this.errorMessageTime = `Die Uhrzeit liegt nicht innerhalb der Öffnungszeiten. \n ${this.dealerOpeningHours}`;
+            } else {
+                this.errorMessageTime = "";
+            }
+        } else {
+            return;
+        }
+
         if (this.newAppointment.assignment && this.newAppointment.branch &&
-            this.newAppointment.vehicleRegNo && this.newAppointment.status && this.newAppointment.date && this.newAppointment.time) {
+            this.newAppointment.vehicleRegNo && this.newAppointment.status && this.newAppointment.date && this.newAppointment.time
+            && isNotEmpty(this.newAppointment.assignment) && isValidVehicleRegNo(this.newAppointment.vehicleRegNo)
+            && isInOpeningTime(selectedDealer.openingTime, selectedDealer.closingTime, this.newAppointment.time)) {
 
             const mailOfUser = this.authService.getMailFromJWT();
             this.userService.getUsers().subscribe(users => {
@@ -244,9 +273,16 @@ export class AppointmentDetailViewComponent implements OnInit {
         return (statusMap)[status] || status;
     }
 
-    formatTime(date: Date): string {
+    public formatTime(date: Date): string {
         const hours = date.getHours().toString().padStart(2, '0');
         const minutes = date.getMinutes().toString().padStart(2, '0');
         return `${hours}:${minutes}`;
+    }
+
+    public updateOpeningHours() {
+        const selectedDealer = this.dealerList.find(dealer => dealer.city === this.newAppointment.branch);
+        this.dealerOpeningHours = selectedDealer
+            ? `Öffnungszeiten: ${selectedDealer.openingTime} - ${selectedDealer.closingTime}`
+            : 'Öffnungszeiten nicht verfügbar';
     }
 }

@@ -75,3 +75,21 @@ export function isValidVehicleRegNo(vehicleRegNo: string): boolean {
   const regNoRegex = /^[A-Z]{1,3}-[A-Z]{1,2} \d{1,4}$/;
   return regNoRegex.test(vehicleRegNo);
 }
+
+export function isInOpeningTime(openingTime: string, closingTime: string, bookedTime: string): boolean {
+
+  console.log("isInOpeningTime")
+
+  // Zeitformate in Stunden und Minuten umwandeln
+  const [openHours, openMinutes] = openingTime.split(':').map(Number);
+  const [closeHours, closeMinutes] = closingTime.split(':').map(Number);
+  const [bookedHours, bookedMinutes] = bookedTime.split(':').map(Number);
+
+  // Date-Objekte für Vergleich erstellen
+  const openDate = new Date(0, 0, 0, openHours, openMinutes);
+  const closeDate = new Date(0, 0, 0, closeHours, closeMinutes);
+  const bookedDate = new Date(0, 0, 0, bookedHours, bookedMinutes);
+
+  // Prüfen, ob die gebuchte Zeit innerhalb der Öffnungszeiten liegt
+  return bookedDate >= openDate && bookedDate <= closeDate;
+}
