@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {AppointmentService} from "../appointment.service";
-import {Appointment, Dealer, User} from "interfaces";
-import {NgbInputDatepicker, NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {FormsModule} from "@angular/forms";
-import {UserService} from "../user.service";
-import {AuthService} from "../auth.service";
-import {isInOpeningTime, isNotEmpty, isValidVehicleRegNo} from "shared";
-import {DealerService} from "../dealer.service";
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AppointmentService } from "../appointment.service";
+import { Appointment, Dealer, User } from "interfaces";
+import { NgbInputDatepicker, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { FormsModule } from "@angular/forms";
+import { UserService } from "../user.service";
+import { AuthService } from "../auth.service";
+import { isInOpeningTime, isNotEmpty, isValidVehicleRegNo } from "shared";
+import { DealerService } from "../dealer.service";
 
 @Component({
     selector: 'app-appointment-detail-view',
@@ -19,15 +19,8 @@ import {DealerService} from "../dealer.service";
 export class AppointmentDetailViewComponent implements OnInit {
 
     public appointmentList: Appointment[] = [];
-    public newAppointment: {
-        date: string;
-        vehicleOwner: User | undefined;
-        assignment: string;
-        time: string;
-        branch: string;
-        vehicleRegNo: string;
-        status: string
-    } = {
+    public newAppointment: Appointment = {
+        id: 0,  // Ensure id is included for new appointments
         assignment: '',
         branch: '',
         vehicleOwner: {} as User,
@@ -53,11 +46,10 @@ export class AppointmentDetailViewComponent implements OnInit {
         private readonly userService: UserService,
         private readonly modalService: NgbModal,
         private readonly dealerService: DealerService,
-        protected readonly authService: AuthService) {}
+        protected readonly authService: AuthService) { }
 
     /**
-     * Initializes the component by loading the appointment and user lists.
-     * Filters appointments based on the current user's email.
+     * Initializes the component by fetching appointments, users, and dealers.
      */
     public ngOnInit(): void {
         this.appointmentService.getAppointments().subscribe(appointments => {
@@ -87,7 +79,7 @@ export class AppointmentDetailViewComponent implements OnInit {
     }
 
     /**
-     * Opens a given modal window.
+     * Opens a modal window.
      * @param modal - The modal to be opened.
      */
     public open(modal: any): void {
@@ -95,19 +87,18 @@ export class AppointmentDetailViewComponent implements OnInit {
     }
 
     /**
-     * Opens the edit modal for a specific appointment, pre-filling it with the appointment's details.
+     * Opens the edit modal for an appointment and prepares the selected appointment for editing.
      * @param modal - The modal to be opened.
      * @param appointment - The appointment to be edited.
      */
-    public openEditModalAppointment(modal: any, appointment: any) {
+    public openEditModalAppointment(modal: any, appointment: Appointment) {
         this.selectedAppointment = { ...appointment };
         this.updateOpeningHours();
         this.modalService.open(modal);
     }
 
     /**
-     * Deletes an appointment by its ID and removes it from the appointment list.
-     * Displays a toast message upon success or failure.
+     * Deletes an appointment based on its ID.
      * @param appointmentId - The ID of the appointment to be deleted.
      */
     public deleteAppointment(appointmentId: number): void {
@@ -130,9 +121,8 @@ export class AppointmentDetailViewComponent implements OnInit {
     }
 
     /**
-     * Saves a new appointment after validating the input fields.
-     * If the validation is successful, the appointment is created and added to the list.
-     * @param modal - The modal to be closed upon success.
+     * Saves a new appointment after validating the inputs.
+     * @param modal - The modal to be closed after saving the appointment.
      */
     public saveAppointment(modal: any): void {
         if (!isNotEmpty(this.newAppointment.assignment)) {
@@ -166,14 +156,17 @@ export class AppointmentDetailViewComponent implements OnInit {
 
             const mailOfUser = this.authService.getMailFromJWT();
             this.userService.getUsers().subscribe(users => {
-                this.newAppointment.vehicleOwner = users.find(user => user.email === mailOfUser);
+                // Fallback, wenn kein Benutzer gefunden wird
+                const userFound = users.find(user => user.email === mailOfUser);
+                this.newAppointment.vehicleOwner = userFound || {} as User;  // Sicherstellen, dass vehicleOwner immer ein User ist
                 this.appointmentService.createAppointment(this.newAppointment).subscribe(savedAppointment => {
                     this.appointmentList.push(savedAppointment);
 
                     this.newAppointment = {
+                        id: 0,  // ID für den neuen Termin
                         assignment: '',
                         branch: '',
-                        vehicleOwner: {} as User,
+                        vehicleOwner: {} as User,  // Sicherstellen, dass ein leerer User gesetzt wird
                         vehicleRegNo: '',
                         status: 'OPEN',
                         date: '',
@@ -188,13 +181,12 @@ export class AppointmentDetailViewComponent implements OnInit {
     }
 
     /**
-     * Updates an existing appointment after validating the input fields.
-     * If the validation is successful, the appointment is updated in the list.
-     * @param modal - The modal to be closed upon success.
+     * Updates an existing appointment after validating the inputs.
+     * @param modal - The modal to be closed after updating the appointment.
      */
     public updateAppointment(modal: any): void {
         if (!isNotEmpty(this.newAppointment.assignment)) {
-            this.errorMessageAssignment = "Nachname darf nicht leer sein";
+            this.errorMessageAssignment = "Auftrag darf nicht leer sein";
         } else {
             this.errorMessageAssignment = "";
         }
@@ -234,7 +226,7 @@ export class AppointmentDetailViewComponent implements OnInit {
     }
 
     /**
-     * Filters appointments to show only those related to the current user based on their email.
+     * Filters the list of appointments to only include those belonging to the current user.
      */
     private filterAppointments(): void {
         const userEmail = this.authService.getMailFromJWT();
@@ -244,15 +236,15 @@ export class AppointmentDetailViewComponent implements OnInit {
     }
 
     /**
-     * Closes the toast message.
+     * Closes the currently visible toast message.
      */
     public closeToast(): void {
         this.toastMessage = null;
     }
 
     /**
-     * Displays a toast message for a specified duration.
-     * @param message - The message to be displayed in the toast.
+     * Displays a toast message and hides it after 5 seconds.
+     * @param message - The message to display in the toast.
      */
     private showToast(message: string): void {
         this.toastMessage = message;
@@ -260,9 +252,9 @@ export class AppointmentDetailViewComponent implements OnInit {
     }
 
     /**
-     * Converts a status string to its display representation in German.
-     * @param status - The status string to be displayed.
-     * @returns The status in German.
+     * Converts appointment status codes to human-readable format.
+     * @param status - The status of the appointment.
+     * @returns The human-readable status.
      */
     public getStatusDisplay(status: string): string {
         const statusMap: { [key: string]: string } = {
@@ -273,12 +265,20 @@ export class AppointmentDetailViewComponent implements OnInit {
         return (statusMap)[status] || status;
     }
 
+    /**
+     * Formats the given date into a time string (HH:mm).
+     * @param date - The date object to format.
+     * @returns The formatted time string.
+     */
     public formatTime(date: Date): string {
         const hours = date.getHours().toString().padStart(2, '0');
         const minutes = date.getMinutes().toString().padStart(2, '0');
         return `${hours}:${minutes}`;
     }
 
+    /**
+     * Updates the opening hours information based on the selected dealer's branch.
+     */
     public updateOpeningHours() {
         const selectedDealer = this.dealerList.find(dealer => dealer.city === this.newAppointment.branch);
         this.dealerOpeningHours = selectedDealer
