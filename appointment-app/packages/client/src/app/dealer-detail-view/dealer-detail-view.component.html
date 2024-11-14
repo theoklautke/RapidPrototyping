@@ -81,21 +81,23 @@
                 <div *ngIf="errorMessageCity" class="alert alert-danger mt-3">{{ errorMessageCity }}</div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-6">
                     <div class="mb-3">
                         <label class="form-label" for="openingTime-add">Öffnet um</label>
                         <input [(ngModel)]="newDealer.openingTime" class="form-control" id="openingTime-add" name="date"
                                required type="time">
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-6">
                     <div class="mb-3">
                         <label class="form-label" for="closingTime-add">Schließt um</label>
                         <input [(ngModel)]="newDealer.closingTime" class="form-control" id="closingTime-add" name="date"
                                required type="time">
                     </div>
                 </div>
-                <div *ngIf="errorMessageOpeningtime" class="alert alert-danger mt-3">{{ errorMessageOpeningtime }}</div>
+                <div class="col-12">
+                    <div *ngIf="errorMessageOpeningtime" class="alert alert-danger mt-3">{{ errorMessageOpeningtime }}</div>
+                </div>
             </div>
         </form>
     </div>
