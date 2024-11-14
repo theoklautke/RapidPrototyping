@@ -4,7 +4,7 @@ import {NgbInputDatepicker, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule} from "@angular/forms";
 import {Dealer} from "interfaces";
 import {DealerService} from "../dealer.service";
-import {shared} from "shared";
+import {isNotEmpty, isNotEmptyNumber, isOpeningtimeBeforeClosingtime, isValidGermanPostcode, shared} from "shared";
 
 @Component({
     selector: 'app-dealer-detail-view',
@@ -26,6 +26,11 @@ export class DealerDetailViewComponent implements OnInit {
 
     public selectedDealer: Dealer | null = null;
     public toastMessage: string | null = null;
+    public errorMessagePostcode = '';
+    public errorMessageStreet = '';
+    public errorMessageHouseNr = '';
+    public errorMessageCity = '';
+    public errorMessageOpeningtime = '';
 
     constructor(private readonly dealerService: DealerService,
                 private readonly modalService: NgbModal) {
@@ -56,9 +61,45 @@ export class DealerDetailViewComponent implements OnInit {
     }
 
     public saveDealer(modal: any): void {
+
+        if (!isValidGermanPostcode(this.newDealer.postalCode)) {
+            this.errorMessagePostcode = "Das ist keine valide deutsche Postleitzahl";
+        } else {
+            this.errorMessagePostcode = "";
+        }
+
+        if (!isNotEmpty(this.newDealer.street)) {
+            this.errorMessageStreet = "Die Straße darf nicht leer sein";
+        } else {
+            this.errorMessageStreet = "";
+        }
+
+        if (!isNotEmptyNumber(this.newDealer.houseNumber)) {
+            this.errorMessageHouseNr = "Die Hausnummer darf nicht leer sein";
+        } else {
+            this.errorMessageHouseNr = "";
+        }
+
+        if (!isNotEmpty(this.newDealer.city)) {
+            this.errorMessageCity = "Die Stadt darf nicht leer sein";
+        } else {
+            this.errorMessageCity = "";
+        }
+
+        if (!isOpeningtimeBeforeClosingtime(this.newDealer.openingTime, this.newDealer.closingTime)) {
+            this.errorMessageOpeningtime = "Die Öffnungszeit muss vor der Schließzeit liegen";
+        } else {
+            this.errorMessageOpeningtime = "";
+        }
+
         if (this.newDealer.postalCode && this.newDealer.street &&
             this.newDealer.houseNumber && this.newDealer.city &&
-            this.newDealer.openingTime && this.newDealer.closingTime) {
+            this.newDealer.openingTime && this.newDealer.closingTime
+            && isValidGermanPostcode(this.newDealer.postalCode)
+            && isNotEmpty(this.newDealer.street)
+            && isNotEmptyNumber(this.newDealer.houseNumber)
+            && isNotEmpty(this.newDealer.city)
+            && isOpeningtimeBeforeClosingtime(this.newDealer.openingTime, this.newDealer.closingTime)) {
 
             this.dealerService.createDealer(this.newDealer).subscribe(savedDealer => {
                 this.dealerList.push(savedDealer);
@@ -79,19 +120,61 @@ export class DealerDetailViewComponent implements OnInit {
     }
 
     public updateDealer(modal: any): void {
-        if (this.selectedDealer && this.selectedDealer.id) {
-            this.dealerService.updateDealer(this.selectedDealer.id, this.selectedDealer).subscribe(updatedDealer => {
-                const index = this.dealerList.findIndex(x => x.id === updatedDealer.id);
-                if (index !== -1) {
-                    this.dealerList[index] = updatedDealer;
-                }
+        if (this.selectedDealer) {
+            if (!isValidGermanPostcode(this.selectedDealer.postalCode)) {
+                this.errorMessagePostcode = "Das ist keine valide deutsche Postleitzahl";
+            } else {
+                this.errorMessagePostcode = "";
+            }
 
-                this.showToast('Dealer updated successfully');
-                modal.close();
-                this.selectedDealer = null; // Clear the selection
-            });
+            if (!isNotEmpty(this.selectedDealer.street)) {
+                this.errorMessageStreet = "Die Straße darf nicht leer sein";
+            } else {
+                this.errorMessageStreet = "";
+            }
+
+            if (!isNotEmptyNumber(this.selectedDealer.houseNumber)) {
+                this.errorMessageHouseNr = "Die Hausnummer darf nicht leer sein";
+            } else {
+                this.errorMessageHouseNr = "";
+            }
+
+            if (!isNotEmpty(this.selectedDealer.city)) {
+                this.errorMessageCity = "Die Stadt darf nicht leer sein";
+            } else {
+                this.errorMessageCity = "";
+            }
+
+            if (!isOpeningtimeBeforeClosingtime(this.selectedDealer.openingTime, this.selectedDealer.closingTime)) {
+                this.errorMessageOpeningtime = "Die Öffnungszeit muss vor der Schließzeit liegen";
+            } else {
+                this.errorMessageOpeningtime = "";
+            }
+
+            // Überprüfen, ob alle Felder gültig sind
+            if (this.selectedDealer.postalCode && this.selectedDealer.street &&
+                this.selectedDealer.houseNumber && this.selectedDealer.city &&
+                this.selectedDealer.openingTime && this.selectedDealer.closingTime &&
+                isValidGermanPostcode(this.selectedDealer.postalCode) &&
+                isNotEmpty(this.selectedDealer.street) &&
+                isNotEmptyNumber(this.selectedDealer.houseNumber) &&
+                isNotEmpty(this.selectedDealer.city) &&
+                isOpeningtimeBeforeClosingtime(this.selectedDealer.openingTime, this.selectedDealer.closingTime)) {
+
+                this.dealerService.updateDealer(this.selectedDealer.id, this.selectedDealer).subscribe(updatedDealer => {
+                    const index = this.dealerList.findIndex(x => x.id === updatedDealer.id);
+                    if (index !== -1) {
+                        this.dealerList[index] = updatedDealer;
+                    }
+
+                    this.showToast('Händler erfolgreich aktualisiert');
+                    modal.close();
+                    this.selectedDealer = null; // Auswahl zurücksetzen
+                });
+            }
         }
     }
+
 
     public closeToast(): void {
         this.toastMessage = null;

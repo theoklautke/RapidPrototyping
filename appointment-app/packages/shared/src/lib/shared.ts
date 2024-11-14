@@ -77,19 +77,59 @@ export function isValidVehicleRegNo(vehicleRegNo: string): boolean {
 }
 
 export function isInOpeningTime(openingTime: string, closingTime: string, bookedTime: string): boolean {
-
-  console.log("isInOpeningTime")
-
-  // Zeitformate in Stunden und Minuten umwandeln
   const [openHours, openMinutes] = openingTime.split(':').map(Number);
   const [closeHours, closeMinutes] = closingTime.split(':').map(Number);
   const [bookedHours, bookedMinutes] = bookedTime.split(':').map(Number);
 
-  // Date-Objekte für Vergleich erstellen
   const openDate = new Date(0, 0, 0, openHours, openMinutes);
   const closeDate = new Date(0, 0, 0, closeHours, closeMinutes);
   const bookedDate = new Date(0, 0, 0, bookedHours, bookedMinutes);
 
-  // Prüfen, ob die gebuchte Zeit innerhalb der Öffnungszeiten liegt
   return bookedDate >= openDate && bookedDate <= closeDate;
 }
+
+
+/**
+ * Checks if the given postcode is a valid German postcode.
+ * A valid German postcode consists of exactly 5 digits.
+ *
+ * @param postcode - The postcode to validate.
+ * @returns true if the postcode is valid, otherwise false.
+ */
+export function isValidGermanPostcode(postcode: number): boolean {
+  const postcodeStr = postcode.toString();
+  const postcodeRegex = /^[0-9]{5}$/;
+  return postcodeRegex.test(postcodeStr);
+}
+
+
+
+/**
+ * Checks if the opening time is before the closing time.
+ * Both times should be in the format "HH:mm".
+ *
+ * @param openingtime - The opening time in "HH:mm" format.
+ * @param closingtime - The closing time in "HH:mm" format.
+ * @returns true if the opening time is before the closing time, otherwise false.
+ */
+export function isOpeningtimeBeforeClosingtime(openingtime: string, closingtime: string): boolean {
+  const [openHours, openMinutes] = openingtime.split(':').map(Number);
+  const [closeHours, closeMinutes] = closingtime.split(':').map(Number);
+
+  const openDate = new Date(0, 0, 0, openHours, openMinutes);
+  const closeDate = new Date(0, 0, 0, closeHours, closeMinutes);
+
+  return openDate < closeDate;
+}
+
+/**
+ * Checks if the given number is not empty or invalid.
+ * A valid number is considered one that is not NaN and is greater than 0.
+ *
+ * @param num - The number to check.
+ * @returns true if the number is valid and not empty, otherwise false.
+ */
+export function isNotEmptyNumber(num: number): boolean {
+  return !isNaN(num) && num !== 0;
+}
+

@@ -44,7 +44,7 @@ export class DealerService {
      * @param dealer - The updated dealer data.
      * @returns An observable of the updated Dealer object.
      */
-    public updateDealer(id: number, dealer: Dealer): Observable<Dealer> {
+    public updateDealer(id: number | undefined, dealer: Dealer): Observable<Dealer> {
         return this.http.put<Dealer>(`${this.apiUrl}/${id}`, dealer);
     }
 }
