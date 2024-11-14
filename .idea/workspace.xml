@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added validator for openingTime">
+    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added doc in backend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.controller.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/dealer/dealer.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/dealer/dealer.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.controller.spec.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +49,8 @@
     "Docker.Start database.executor": "Run",
     "Docker.appointment-app: Compose Deployment.executor": "Run",
     "Jest.AppointmentDetailViewComponent.executor": "Run",
+    "Jest.AppointmentEntity.executor": "Run",
+    "Jest.AppointmentSeeder.executor": "Run",
     "Jest.AppointmentService.executor": "Run",
     "Jest.DTO and Model Tests.executor": "Run",
     "Jest.Validation Functions.isValidPassword.executor": "Run",
@@ -109,16 +102,28 @@
       <recent name="$PROJECT_DIR$/appointment-app/packages/service/src/app/auth" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start:api">
-    <configuration name="AppointmentDetailViewComponent" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="npm.start:ui">
+    <configuration name="AppointmentEntity" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/appointment-app/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/appointment-app/packages/client" />
+      <working-dir value="$PROJECT_DIR$/appointment-app/packages/service" />
       <envs />
       <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.spec.ts" />
+      <test-file value="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.entity.spec.ts" />
       <test-names>
-        <test-name value="AppointmentDetailViewComponent" />
+        <test-name value="AppointmentEntity" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="AppointmentSeeder" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/appointment-app/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/appointment-app/packages/service" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.seeder.spec.ts" />
+      <test-names>
+        <test-name value="AppointmentSeeder" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -131,18 +136,6 @@
       <test-file value="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.service.spec.ts" />
       <test-names>
         <test-name value="AppointmentService" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="DTO and Model Tests" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/appointment-app/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/appointment-app/packages/interfaces" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.spec.ts" />
-      <test-names>
-        <test-name value="DTO and Model Tests" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -182,11 +175,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start:ui" />
+        <item itemvalue="Jest.AppointmentSeeder" />
+        <item itemvalue="Jest.AppointmentEntity" />
         <item itemvalue="npm.start:api" />
         <item itemvalue="Jest.AppointmentService" />
-        <item itemvalue="npm.start:ui" />
-        <item itemvalue="Jest.AppointmentDetailViewComponent" />
-        <item itemvalue="Jest.DTO and Model Tests" />
       </list>
     </recent_temporary>
   </component>
@@ -339,7 +332,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731512911631</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added doc in backend">
+      <option name="closed" value="true" />
+      <created>1731579456672</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1731579456672</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,6 +369,7 @@
     <MESSAGE value="Added Validator" />
     <MESSAGE value="Refactor" />
     <MESSAGE value="Added validator for openingTime" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added validator for openingTime" />
+    <MESSAGE value="Added doc in backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added doc in backend" />
   </component>
 </project>
