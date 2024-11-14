@@ -169,7 +169,7 @@ export class CalendarComponent implements OnInit {
 
         if (this.selectedEvent) {
           const newAppointment: Appointment = {
-            id: -1,
+            id: 1,
             date: this.selectedEvent.date,
             time: this.selectedEvent.time,
             vehicleOwner: {
@@ -182,7 +182,7 @@ export class CalendarComponent implements OnInit {
             } as User,
             vehicleRegNo: this.selectedEvent.vehicleRegNo,
             branch: this.selectedEvent.branch,
-            status: this.selectedEvent.status,
+            status: "OPEN",
             assignment: this.selectedEvent.assignment,
           };
 
