@@ -4,13 +4,15 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { EventInput, CalendarOptions } from '@fullcalendar/core';
 import { AppointmentService } from '../appointment.service';
-import { Appointment, User } from 'interfaces';
+import { Appointment, Dealer, User } from 'interfaces';
 import { ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import * as bootstrap from 'bootstrap';
 import { AuthService } from '../auth.service';
 import { UserService } from '../user.service';
+import { DealerService } from '../dealer.service';
+import { isInOpeningTime, isNotEmpty, isValidVehicleRegNo } from 'shared';
 
 @Component({
   standalone: true,
@@ -29,16 +31,23 @@ export class CalendarComponent implements OnInit {
   public isDealer: boolean = false;
   public vehicleOwner: User | undefined;
   public user: any = null;
+  public dealers: Dealer[] = [];
+  public errorMessageAssignment = '';
+  public errorMessageVehicleRegNo = '';
+  public errorMessageTime = '';
+  public dealerOpeningHours: string = '';
 
   constructor(
     private appointmentService: AppointmentService,
     private cdr: ChangeDetectorRef,
     protected readonly authService: AuthService,
-    private readonly userService: UserService
+    private readonly userService: UserService,
+    private readonly dealerService: DealerService
   ) {} // Injection des Services
 
   ngOnInit(): void {
     this.isDealer = this.authService.isDealer(); // Prüfe, ob der Benutzer ein Händler ist
+
     this.calendarOptions = {
       initialView: 'dayGridMonth',
       plugins: [dayGridPlugin, interactionPlugin],
@@ -54,6 +63,10 @@ export class CalendarComponent implements OnInit {
 
     this.refreshCalendar(); // Lade den Kalender nach der Initialisierung
 
+    // Lade die Branchen-Optionen für die Terminerstellung
+    this.dealerService.getDealers().subscribe((dealers: Dealer[]) => {
+      this.dealers = dealers;
+    });
     // Lade alle Termine und setze die Kalenderoptionen
     this.appointmentService.getAppointments().subscribe((appointments: Appointment[]) => {
       this.appointmentList = appointments;
@@ -155,7 +168,29 @@ export class CalendarComponent implements OnInit {
   }
 
   saveNewAppointment(): void {
-    console.log('Neuer Termin speichern-Button geklickt');
+    if (!isNotEmpty(this.selectedEvent.assignment)) {
+      this.errorMessageAssignment = "Auftrag darf nicht leer sein";
+    } else {
+      this.errorMessageAssignment = "";
+    }
+
+    if (!isValidVehicleRegNo(this.selectedEvent.vehicleRegNo)) {
+      this.errorMessageVehicleRegNo = "Kennzeichen ist nicht valide (Bsp.: \"M-XY 5678\", \"B-A 123\", \"HH-AB 1234\")";
+    } else {
+      this.errorMessageVehicleRegNo = "";
+    }
+
+    const selectedDealer = this.dealers.find(x => x.city === this.selectedEvent.branch);
+
+    if (selectedDealer) {
+      if (!isInOpeningTime(selectedDealer.openingTime, selectedDealer.closingTime, this.selectedEvent.time)) {
+        this.errorMessageTime = `Die Uhrzeit liegt nicht innerhalb der Öffnungszeiten. \n ${this.dealerOpeningHours}`;
+      } else {
+        this.errorMessageTime = "";
+      }
+    } else {
+      return;
+    }
 
     const mailOfUser = this.authService.getMailFromJWT();
     this.userService.getUsers().subscribe({
@@ -216,6 +251,29 @@ export class CalendarComponent implements OnInit {
   }
 
   saveEditedAppointment(): void {
+    if (!isNotEmpty(this.selectedEvent.assignment)) {
+      this.errorMessageAssignment = "Auftrag darf nicht leer sein";
+    } else {
+      this.errorMessageAssignment = "";
+    }
+
+    if (!isValidVehicleRegNo(this.selectedEvent.vehicleRegNo)) {
+      this.errorMessageVehicleRegNo = "Kennzeichen ist nicht valide (Bsp.: \"M-XY 5678\", \"B-A 123\", \"HH-AB 1234\")";
+    } else {
+      this.errorMessageVehicleRegNo = "";
+    }
+
+    const selectedDealer = this.dealers.find(x => x.city === this.selectedEvent.branch);
+
+    if (selectedDealer) {
+      if (!isInOpeningTime(selectedDealer.openingTime, selectedDealer.closingTime, this.selectedEvent.time)) {
+        this.errorMessageTime = `Die Uhrzeit liegt nicht innerhalb der Öffnungszeiten. \n ${this.dealerOpeningHours}`;
+      } else {
+        this.errorMessageTime = "";
+      }
+    } else {
+      return;
+    }
     if (this.selectedEvent && this.selectedEvent.id) {
       const updatedData = {
         id: this.selectedEvent.id,
@@ -228,22 +286,28 @@ export class CalendarComponent implements OnInit {
         time: this.selectedEvent.time,
       };
 
-      this.appointmentService.updateAppointment(updatedData.id, updatedData).subscribe({
-        next: () => {
-          console.log('Termin wurde erfolgreich aktualisiert.');
-          this.refreshCalendar();
-          this.closeAllModals();
-          this.selectedEvent = {};
-        },
-        error: (error) => {
-          console.error('Fehler beim Bearbeiten des Termins:', error);
-        },
-      });
-    } else {
-      console.warn('Kein Termin zum Bearbeiten ausgewählt oder ungültige ID.');
+      if (this.selectedEvent.assignment && this.selectedEvent.branch &&
+        this.selectedEvent.vehicleRegNo && this.selectedEvent.status && this.selectedEvent.date && this.selectedEvent.time
+        && isNotEmpty(this.selectedEvent.assignment) && isValidVehicleRegNo(this.selectedEvent.vehicleRegNo)
+        && isInOpeningTime(selectedDealer.openingTime, selectedDealer.closingTime, this.selectedEvent.time)) {
+
+
+        this.appointmentService.updateAppointment(updatedData.id, updatedData).subscribe({
+          next: () => {
+            console.log('Termin wurde erfolgreich aktualisiert.');
+            this.refreshCalendar();
+            this.closeAllModals();
+            this.selectedEvent = {};
+          },
+          error: (error) => {
+            console.error('Fehler beim Bearbeiten des Termins:', error);
+          },
+        });
+      } else {
+        console.warn('Kein Termin zum Bearbeiten ausgewählt oder ungültige ID.');
+      }
     }
   }
-
   cancelAppointment(): void {
     if (this.selectedEvent && this.selectedEvent.id) {
       this.appointmentService.deleteAppointment(this.selectedEvent.id).subscribe({
@@ -340,5 +404,6 @@ export class CalendarComponent implements OnInit {
       }
     });
   }
+
 
 }

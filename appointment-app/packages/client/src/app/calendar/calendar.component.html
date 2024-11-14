@@ -38,6 +38,7 @@
           <div class="mb-3">
             <label for="editTimeInput" class="form-label">Zeit</label>
             <input type="time" class="form-control" id="editTimeInput" [(ngModel)]="selectedEvent.time" name="time">
+            <div *ngIf="errorMessageTime" class="alert alert-danger mt-3">{{ errorMessageTime }}</div>
           </div>
           <div class="mb-3">
             <label for="editDateInput" class="form-label">Datum</label>
@@ -50,6 +51,7 @@
           <div class="mb-3">
             <label for="editAssignmentInput" class="form-label">Auftrag</label>
             <textarea class="form-control" id="editAssignmentInput" [(ngModel)]="selectedEvent.assignment" name="assignment"></textarea>
+            <div *ngIf="errorMessageAssignment" class="alert alert-danger mt-3">{{ errorMessageAssignment }}</div>
           </div>
         </form>
       </div>
@@ -78,18 +80,23 @@
           <div class="mb-3">
             <label for="timeInput" class="form-label">Zeit</label>
             <input type="time" class="form-control" id="timeInput" [(ngModel)]="selectedEvent.time" name="time">
+            <div *ngIf="errorMessageTime" class="alert alert-danger mt-3">{{ errorMessageTime }}</div>
           </div>
           <div class="mb-3">
             <label for="vehicleRegNoInput" class="form-label">Kennzeichen</label>
             <input type="text" class="form-control" id="vehicleRegNoInput" [(ngModel)]="selectedEvent.vehicleRegNo" name="vehicleRegNo">
+            <div *ngIf="errorMessageVehicleRegNo" class="alert alert-danger mt-3">{{ errorMessageVehicleRegNo }}</div>
           </div>
           <div class="mb-3">
-            <label for="branchInput" class="form-label">Händler</label>
-            <input type="text" class="form-control" id="branchInput" [(ngModel)]="selectedEvent.branch" name="branch">
+            <label for="branchSelect" class="form-label">Händler</label>
+            <select class="form-control" id="branchSelect" [(ngModel)]="selectedEvent.branch" name="branch">
+              <option *ngFor="let dealer of dealers" [value]="dealer.city">{{ dealer.postalCode }} {{ dealer.city }} - {{ dealer.street }} {{ dealer.houseNumber }}</option>
+            </select>
           </div>
           <div class="mb-3">
             <label for="assignmentInput" class="form-label">Auftrag</label>
             <textarea class="form-control" id="assignmentInput" [(ngModel)]="selectedEvent.assignment" name="assignment"></textarea>
+            <div *ngIf="errorMessageAssignment" class="alert alert-danger mt-3">{{ errorMessageAssignment }}</div>
           </div>
         </form>
       </div>
