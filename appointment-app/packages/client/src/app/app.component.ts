@@ -13,5 +13,5 @@ import { CalendarComponent } from './calendar/calendar.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'client';
+  title = 'Appointment App';
 }
