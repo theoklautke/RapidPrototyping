@@ -125,12 +125,13 @@
             <div class="mb-3">
                 <label class="form-label" for="assignment">Auftrag</label>
                 <input [(ngModel)]="selectedAppointment.assignment" class="form-control" id="assignment" name="assignment" required type="text">
+                <div *ngIf="errorMessageAssignment" class="alert alert-danger mt-3">{{ errorMessageAssignment }}</div>
             </div>
 
             <!-- Händler -->
             <div class="mb-3">
                 <label class="form-label" for="branch">Händler</label>
-                <select [(ngModel)]="selectedAppointment.branch" (ngModelChange)="updateOpeningHours()" id="branch" name="branch" class="form-control form-select">
+                <select [(ngModel)]="selectedAppointment.branch" (ngModelChange)="updateOpeningHoursForUpdate()" id="branch" name="branch" class="form-control form-select">
                     <option *ngFor="let dealer of dealerList" [value]="dealer.city">{{ dealer.postalCode }} {{ dealer.city }} - {{ dealer.street }} {{ dealer.houseNumber }}</option>
                 </select>
                 <small class="text-muted mt-1 d-block">{{ dealerOpeningHours }}</small>
@@ -140,12 +141,13 @@
             <div class="mb-3">
                 <label class="form-label" for="vehicleRegNo">Kennzeichen</label>
                 <input [(ngModel)]="selectedAppointment.vehicleRegNo" class="form-control" id="vehicleRegNo" name="vehicleRegNo" required type="text">
+                <div *ngIf="errorMessageVehicleRegNo" class="alert alert-danger mt-3">{{ errorMessageVehicleRegNo }}</div>
             </div>
 
             <!-- Status -->
             <div class="mb-3">
                 <label class="form-label" for="status">Status</label>
-                <select [(ngModel)]="selectedAppointment.status" class="form-control form-select" id="status" name="status" required [disabled]="!this.authService.isDealer()">
+                <select [(ngModel)]="selectedAppointment.status" class="form-control form-select" id="status" name="status" required [disabled]="!authService.isDealer()">
                     <option value="OPEN">Offen</option>
                     <option value="IN_PROGRESS">In Bearbeitung</option>
                     <option value="COMPLETED">Beendet</option>
@@ -158,9 +160,11 @@
                 <input [(ngModel)]="selectedAppointment.date" class="form-control" id="date" name="date" required type="date">
             </div>
 
+            <!-- Uhrzeit -->
             <div class="mb-3">
                 <label class="form-label" for="time">Uhrzeit</label>
                 <input [(ngModel)]="selectedAppointment.time" class="form-control" id="time" name="time" required type="time">
+                <div *ngIf="errorMessageTime" class="alert alert-danger mt-3">{{ errorMessageTime }}</div>
             </div>
         </form>
     </div>

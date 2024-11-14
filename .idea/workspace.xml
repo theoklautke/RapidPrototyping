@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Fixed bug">
+    <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added validation in dealer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer-detail-view/dealer-detail-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer-detail-view/dealer-detail-view.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer-detail-view/dealer-detail-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer-detail-view/dealer-detail-view.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/dealer/dealer.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/dealer/dealer.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -371,7 +367,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731582531032</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added validation in dealer">
+      <option name="closed" value="true" />
+      <created>1731586090137</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1731586090137</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,6 +408,7 @@
     <MESSAGE value="Added tests" />
     <MESSAGE value="Added logo" />
     <MESSAGE value="Fixed bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug" />
+    <MESSAGE value="Added validation in dealer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added validation in dealer" />
   </component>
 </project>

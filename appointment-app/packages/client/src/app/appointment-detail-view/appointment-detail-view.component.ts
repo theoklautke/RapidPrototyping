@@ -126,7 +126,7 @@ export class AppointmentDetailViewComponent implements OnInit {
      */
     public saveAppointment(modal: any): void {
         if (!isNotEmpty(this.newAppointment.assignment)) {
-            this.errorMessageAssignment = "Nachname darf nicht leer sein";
+            this.errorMessageAssignment = "Auftrag darf nicht leer sein";
         } else {
             this.errorMessageAssignment = "";
         }
@@ -185,7 +185,7 @@ export class AppointmentDetailViewComponent implements OnInit {
      * @param modal - The modal to be closed after updating the appointment.
      */
     public updateAppointment(modal: any): void {
-        if (!isNotEmpty(this.newAppointment.assignment)) {
+        if (isNotEmpty(this.newAppointment.assignment)) {
             this.errorMessageAssignment = "Auftrag darf nicht leer sein";
         } else {
             this.errorMessageAssignment = "";
@@ -195,6 +195,18 @@ export class AppointmentDetailViewComponent implements OnInit {
             this.errorMessageVehicleRegNo = "Kennzeichen ist nicht valide (Bsp.: \"M-XY 5678\", \"B-A 123\", \"HH-AB 1234\")";
         } else {
             this.errorMessageVehicleRegNo = "";
+        }
+
+        const selectedDealer = this.dealerList.find(x => x.city === this.newAppointment.branch);
+
+        if (selectedDealer) {
+            if (!isInOpeningTime(selectedDealer.openingTime, selectedDealer.closingTime, this.newAppointment.time)) {
+                this.errorMessageTime = `Die Uhrzeit liegt nicht innerhalb der Öffnungszeiten. \n ${this.dealerOpeningHours}`;
+            } else {
+                this.errorMessageTime = "";
+            }
+        } else {
+            return;
         }
 
         if (this.selectedAppointment && this.selectedAppointment.id) {
@@ -281,6 +293,13 @@ export class AppointmentDetailViewComponent implements OnInit {
      */
     public updateOpeningHours() {
         const selectedDealer = this.dealerList.find(dealer => dealer.city === this.newAppointment.branch);
+        this.dealerOpeningHours = selectedDealer
+            ? `Öffnungszeiten: ${selectedDealer.openingTime} - ${selectedDealer.closingTime}`
+            : 'Öffnungszeiten nicht verfügbar';
+    }
+
+    public updateOpeningHoursForUpdate() {
+        const selectedDealer = this.dealerList.find(dealer => dealer.city === this.selectedAppointment?.branch);
         this.dealerOpeningHours = selectedDealer
             ? `Öffnungszeiten: ${selectedDealer.openingTime} - ${selectedDealer.closingTime}`
             : 'Öffnungszeiten nicht verfügbar';
