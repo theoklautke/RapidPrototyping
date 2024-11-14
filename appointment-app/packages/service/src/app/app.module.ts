@@ -1,8 +1,5 @@
 import { Module, OnModuleInit } from '@nestjs/common';
-import { JwtModule } from '@nestjs/jwt'; // Füge das JwtModule hinzu
-
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { JwtModule } from '@nestjs/jwt';
 import { AppointmentController } from './appointment/appointment.controller';
 import { AppointmentService } from './appointment/appointment.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -36,8 +33,8 @@ import { UserSeeder } from './user/user.seeder';
       signOptions: { expiresIn: '60m' },
     }),
   ],
-  controllers: [AppController, AppointmentController, DealerController, UserController],
-  providers: [AppService, AppointmentService, AppointmentSeeder, DealerSeeder, DealerService, UserService, UserSeeder],
+  controllers: [AppointmentController, DealerController, UserController],
+  providers: [AppointmentService, AppointmentSeeder, DealerSeeder, DealerService, UserService, UserSeeder],
 })
 export class AppModule implements OnModuleInit {
   constructor(
