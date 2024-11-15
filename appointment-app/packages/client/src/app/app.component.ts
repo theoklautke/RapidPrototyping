@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import {AppointmentDetailViewComponent} from "./appointment-detail-view/appointment-detail-view.component";
 import {NavbarComponent} from "./navbar/navbar.component";
 import {DealerDetailViewComponent} from "./dealer-detail-view/dealer-detail-view.component";
-import { CalendarComponent } from './calendar/calendar.component';
+import {CalendarComponent} from "./calendar/calendar.component";
 
 @Component({
   standalone: true,

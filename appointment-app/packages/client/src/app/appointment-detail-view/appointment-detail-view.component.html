@@ -20,7 +20,7 @@
                     <tr *ngFor="let appointment of appointmentList">
                         <td>{{ appointment.assignment }}</td>
                         <td>{{ appointment.branch }}</td>
-                        <td>{{ appointment.vehicleOwner?.firstname || 'Unbekannt' }} {{ appointment.vehicleOwner?.lastname || 'Unbekannt' }}</td>
+                        <td>{{ appointment.vehicleOwner.firstname || 'Unbekannt' }} {{ appointment.vehicleOwner.lastname || 'Unbekannt' }}</td>
                         <td>{{ appointment.vehicleRegNo }}</td>
                         <td>{{ getStatusDisplay(appointment.status) }}</td>
                         <td>{{ appointment.date }}</td>
@@ -34,7 +34,7 @@
                     <tr *ngFor="let appointment of filteredAppointments">
                         <td>{{ appointment.assignment }}</td>
                         <td>{{ appointment.branch }}</td>
-                        <td>{{ appointment.vehicleOwner?.firstname || 'Unbekannt' }} {{ appointment.vehicleOwner?.lastname || 'Unbekannt' }}</td>
+                        <td>{{ appointment.vehicleOwner.firstname || 'Unbekannt' }} {{ appointment.vehicleOwner.lastname || 'Unbekannt' }}</td>
                         <td>{{ appointment.vehicleRegNo }}</td>
                         <td>{{ getStatusDisplay(appointment.status) }}</td>
                         <td>{{ appointment.date }}</td>
