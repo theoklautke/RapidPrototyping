@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { Router } from '@angular/router';
-import { User } from 'interfaces';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Observable, tap} from 'rxjs';
+import {Router} from '@angular/router';
+import {User} from 'interfaces';
 import {jwtDecode} from "jwt-decode";
 
 @Injectable({
@@ -10,14 +10,21 @@ import {jwtDecode} from "jwt-decode";
 })
 export class AuthService {
 
-    private apiUrl = 'http://localhost:3000/api/user';
-
-    private currentUserSubject: BehaviorSubject<User | null>;
     public currentUser: Observable<User | null>;
+    private apiUrl = 'http://localhost:3000/api/user';
+    private currentUserSubject: BehaviorSubject<User | null>;
 
     constructor(private http: HttpClient, private router: Router) {
         this.currentUserSubject = new BehaviorSubject<User | null>(JSON.parse(localStorage.getItem('currentUser') || 'null'));
         this.currentUser = this.currentUserSubject.asObservable();
+    }
+
+    /**
+     * Returns the current logged-in user's data.
+     * @returns The current user object.
+     */
+    get currentUserValue(): User | null {
+        return this.currentUserSubject.value;
     }
 
     /**
@@ -27,7 +34,7 @@ export class AuthService {
      * @returns An observable of the user object on successful login.
      */
     login(email: string, password: string): Observable<User> {
-        return this.http.post<User>(`${this.apiUrl}/login`, { email, password }).pipe(
+        return this.http.post<User>(`${this.apiUrl}/login`, {email, password}).pipe(
             tap((user) => {
                 // Store the user data (including token) if login is successful
                 localStorage.setItem('currentUser', JSON.stringify(user));
@@ -55,14 +62,6 @@ export class AuthService {
     }
 
     /**
-     * Returns the current logged-in user's data.
-     * @returns The current user object.
-     */
-    get currentUserValue(): User | null {
-        return this.currentUserSubject.value;
-    }
-
-    /**
      * Checks if the user is authenticated.
      * @returns True if the user is authenticated, false otherwise.
      */
@@ -76,7 +75,7 @@ export class AuthService {
         return decodedToken.isDealer;
     }
 
-    public getMailFromJWT(): string{
+    public getMailFromJWT(): string {
         const parsedData = JSON.parse(<string>localStorage.getItem('currentUser'));
         const decodedToken: any = jwtDecode(parsedData.accessToken);
         return decodedToken.email;

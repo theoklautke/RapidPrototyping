@@ -1,7 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { AppointmentEntity } from './appointment.entity';
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import {Repository} from 'typeorm';
+import {AppointmentEntity} from './appointment.entity';
 import {UserEntity} from "../user/user.entity";
 
 @Injectable()
@@ -9,10 +9,10 @@ export class AppointmentSeeder {
     constructor(
         @InjectRepository(AppointmentEntity)
         private appointmentRepository: Repository<AppointmentEntity>,
-
         @InjectRepository(UserEntity)
         private userRepository: Repository<UserEntity>,
-    ) {}
+    ) {
+    }
 
     async seed() {
         const count = await this.appointmentRepository.count();

@@ -6,99 +6,99 @@
                     <h5 class="card-title text-center mb-4">{{ isRegister ? 'Registrieren' : 'Login' }}</h5>
 
                     <!-- Login-Formular -->
-                    <form *ngIf="!isRegister" (ngSubmit)="onLogin()">
+                    <form (ngSubmit)="onLogin()" *ngIf="!isRegister">
                         <div class="form-group mb-4">
-                            <label for="email" class="form-label">Email</label>
+                            <label class="form-label" for="email">Email</label>
                             <input
-                                    type="email"
-                                    id="email"
-                                    class="form-control"
                                     [(ngModel)]="email"
+                                    class="form-control"
+                                    id="email"
                                     name="email"
-                                    required
                                     placeholder="Ihre Email-Adresse"
+                                    required
+                                    type="email"
                             />
                         </div>
                         <div class="form-group mb-4">
-                            <label for="password" class="form-label">Passwort</label>
+                            <label class="form-label" for="password">Passwort</label>
                             <input
-                                    type="password"
-                                    id="password"
-                                    class="form-control"
                                     [(ngModel)]="password"
+                                    class="form-control"
+                                    id="password"
                                     name="password"
-                                    required
                                     placeholder="Ihr Passwort"
+                                    required
+                                    type="password"
                             />
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block mb-4 w-100">
+                        <button class="btn btn-primary btn-block mb-4 w-100" type="submit">
                             Login
                         </button>
                     </form>
 
                     <!-- Registrierungsformular -->
-                    <form *ngIf="isRegister" (ngSubmit)="onRegister()">
+                    <form (ngSubmit)="onRegister()" *ngIf="isRegister">
                         <div class="form-group mb-4">
-                            <label for="firstname" class="form-label">Vorname</label>
+                            <label class="form-label" for="firstname">Vorname</label>
                             <input
-                                    type="text"
-                                    id="firstname"
-                                    class="form-control"
                                     [(ngModel)]="firstname"
+                                    class="form-control"
+                                    id="firstname"
                                     name="firstname"
-                                    required
                                     placeholder="Ihr Vorname"
+                                    required
+                                    type="text"
                             />
                             <div *ngIf="errorMessageFirstname" class="alert alert-danger mt-3">
                                 {{ errorMessageFirstname }}
                             </div>
                         </div>
                         <div class="form-group mb-4">
-                            <label for="lastname" class="form-label">Nachname</label>
+                            <label class="form-label" for="lastname">Nachname</label>
                             <input
-                                    type="text"
-                                    id="lastname"
-                                    class="form-control"
                                     [(ngModel)]="lastname"
+                                    class="form-control"
+                                    id="lastname"
                                     name="lastname"
-                                    required
                                     placeholder="Ihr Nachname"
+                                    required
+                                    type="text"
                             />
                             <div *ngIf="errorMessageLastname" class="alert alert-danger mt-3">
                                 {{ errorMessageLastname }}
                             </div>
                         </div>
                         <div class="form-group mb-4">
-                            <label for="email" class="form-label">Email</label>
+                            <label class="form-label" for="email">Email</label>
                             <input
-                                    type="email"
-                                    id="email"
-                                    class="form-control"
                                     [(ngModel)]="email"
+                                    class="form-control"
+                                    id="email"
                                     name="email"
-                                    required
                                     placeholder="Ihre Email-Adresse"
+                                    required
+                                    type="email"
                             />
                             <div *ngIf="errorMessageEmail" class="alert alert-danger mt-3">
                                 {{ errorMessageEmail }}
                             </div>
                         </div>
                         <div class="form-group mb-4">
-                            <label for="password" class="form-label">Passwort</label>
+                            <label class="form-label" for="password">Passwort</label>
                             <input
-                                    type="password"
-                                    id="password"
-                                    class="form-control"
                                     [(ngModel)]="password"
+                                    class="form-control"
+                                    id="password"
                                     name="password"
-                                    required
                                     placeholder="Ihr Passwort"
+                                    required
+                                    type="password"
                             />
                             <div *ngIf="errorMessagePassword" class="alert alert-danger mt-3">
                                 {{ errorMessagePassword }}
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block mb-4 w-100">
+                        <button class="btn btn-primary btn-block mb-4 w-100" type="submit">
                             Registrieren
                         </button>
                     </form>

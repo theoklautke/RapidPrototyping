@@ -1,7 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { AppointmentEntity } from './appointment.entity';
-import { Repository } from 'typeorm';
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import {AppointmentEntity} from './appointment.entity';
+import {Repository} from 'typeorm';
 import {UserEntity} from "../user/user.entity";
 
 @Injectable()
@@ -11,8 +11,8 @@ export class AppointmentService {
         private readonly appointmentsRepo: Repository<AppointmentEntity>,
         @InjectRepository(UserEntity)
         private readonly userRepo: Repository<UserEntity>
-
-) {}
+    ) {
+    }
 
     /**
      * Retrieves all appointments from the database.
@@ -34,7 +34,7 @@ export class AppointmentService {
             throw new Error('Vehicle owner must be provided with a valid ID');
         }
         const vehicleOwner = await this.userRepo.findOne({
-            where: { id: appointmentData.vehicleOwner.id }
+            where: {id: appointmentData.vehicleOwner.id}
         });
         if (!vehicleOwner) {
             throw new Error(`User with ID ${appointmentData.vehicleOwner.id} not found`);
@@ -52,7 +52,7 @@ export class AppointmentService {
      */
     public async updateAppointment(id: number, appointmentData: Partial<AppointmentEntity>): Promise<AppointmentEntity> {
         await this.appointmentsRepo.update(id, appointmentData);
-        return await this.appointmentsRepo.findOneBy({ id });
+        return await this.appointmentsRepo.findOneBy({id});
     }
 
     /**

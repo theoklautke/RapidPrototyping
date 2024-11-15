@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { UserEntity } from './user.entity';
-import { User, LoginDto } from 'interfaces';
-import { JwtService } from '@nestjs/jwt';
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import {Repository} from 'typeorm';
+import {UserEntity} from './user.entity';
+import {LoginDto, User} from 'interfaces';
+import {JwtService} from '@nestjs/jwt';
 
 @Injectable()
 export class UserService {
@@ -11,7 +11,8 @@ export class UserService {
         @InjectRepository(UserEntity)
         private userRepository: Repository<UserEntity>,
         private jwtService: JwtService
-    ) {}
+    ) {
+    }
 
     public async getAllUsers(): Promise<User[]> {
         return this.userRepository.find();
@@ -24,7 +25,7 @@ export class UserService {
 
     public async updateUser(id: number, userData: User): Promise<User> {
         await this.userRepository.update(id, userData);
-        return this.userRepository.findOne({ where: { id } });
+        return this.userRepository.findOne({where: {id}});
     }
 
     public async deleteUser(id: number): Promise<void> {
@@ -37,17 +38,17 @@ export class UserService {
      * @returns A JWT access token.
      */
     public async login(loginData: LoginDto): Promise<{ accessToken: string }> {
-        const { email, password } = loginData;
+        const {email, password} = loginData;
 
-        const user = await this.userRepository.findOne({ where: { email } });
+        const user = await this.userRepository.findOne({where: {email}});
 
         if (!user || password !== user.password) {
             throw new Error('Invalid credentials');
         }
 
-        const payload = { email: user.email, sub: user.id, isDealer: user.isDealer };
+        const payload = {email: user.email, sub: user.id, isDealer: user.isDealer};
         const accessToken = this.jwtService.sign(payload);
 
-        return { accessToken };
+        return {accessToken};
     }
 }

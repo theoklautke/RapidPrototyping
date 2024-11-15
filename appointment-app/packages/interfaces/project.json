@@ -7,17 +7,23 @@
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/packages/interfaces",
         "main": "packages/interfaces/src/index.ts",
         "tsConfig": "packages/interfaces/tsconfig.lib.json",
-        "assets": ["packages/interfaces/*.md"]
+        "assets": [
+          "packages/interfaces/*.md"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "packages/interfaces/jest.config.ts"
       }

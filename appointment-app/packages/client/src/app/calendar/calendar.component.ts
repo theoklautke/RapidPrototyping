@@ -44,7 +44,7 @@ export class CalendarComponent implements OnInit {
         branch: '',
         status: '',
         assignment: '',
-    } ;
+    };
 
     constructor(
         private appointmentService: AppointmentService,

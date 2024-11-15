@@ -96,7 +96,8 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <div *ngIf="errorMessageOpeningtime" class="alert alert-danger mt-3">{{ errorMessageOpeningtime }}</div>
+                    <div *ngIf="errorMessageOpeningtime" class="alert alert-danger mt-3">{{ errorMessageOpeningtime }}
+                    </div>
                 </div>
             </div>
         </form>
@@ -111,35 +112,40 @@
 <ng-template #editDealerModal let-modal>
     <div class="modal-header">
         <h4 class="modal-title">Händler bearbeiten</h4>
-        <button (click)="modal.dismiss('Cross click')" aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+        <button (click)="modal.dismiss('Cross click')" aria-label="Close" class="btn-close" data-bs-dismiss="modal"
+                type="button"></button>
     </div>
     <div *ngIf="selectedDealer" class="modal-body">
         <form #dealerForm="ngForm">
             <!-- PLZ -->
             <div class="mb-3">
                 <label class="form-label" for="postalCode">PLZ</label>
-                <input [(ngModel)]="selectedDealer.postalCode" class="form-control" id="postalCode" name="postalCode" required type="number">
+                <input [(ngModel)]="selectedDealer.postalCode" class="form-control" id="postalCode" name="postalCode"
+                       required type="number">
                 <div *ngIf="errorMessagePostcode" class="alert alert-danger mt-3">{{ errorMessagePostcode }}</div>
             </div>
 
             <!-- Straße -->
             <div class="mb-3">
                 <label class="form-label" for="street">Straße</label>
-                <input [(ngModel)]="selectedDealer.street" class="form-control" id="street" name="street" required type="text">
+                <input [(ngModel)]="selectedDealer.street" class="form-control" id="street" name="street" required
+                       type="text">
                 <div *ngIf="errorMessageStreet" class="alert alert-danger mt-3">{{ errorMessageStreet }}</div>
             </div>
 
             <!-- Hausnummer -->
             <div class="mb-3">
                 <label class="form-label" for="houseNumber">Haus Nr.</label>
-                <input [(ngModel)]="selectedDealer.houseNumber" class="form-control" id="houseNumber" name="houseNumber" required type="number">
+                <input [(ngModel)]="selectedDealer.houseNumber" class="form-control" id="houseNumber" name="houseNumber"
+                       required type="number">
                 <div *ngIf="errorMessageHouseNr" class="alert alert-danger mt-3">{{ errorMessageHouseNr }}</div>
             </div>
 
             <!-- Stadt -->
             <div class="mb-3">
                 <label class="form-label" for="city">Stadt</label>
-                <input [(ngModel)]="selectedDealer.city" class="form-control" id="city" name="city" required type="text">
+                <input [(ngModel)]="selectedDealer.city" class="form-control" id="city" name="city" required
+                       type="text">
                 <div *ngIf="errorMessageCity" class="alert alert-danger mt-3">{{ errorMessageCity }}</div>
             </div>
 
@@ -148,13 +154,15 @@
                 <div class="col">
                     <div class="mb-3">
                         <label class="form-label" for="openingTime">Öffnet um</label>
-                        <input [(ngModel)]="selectedDealer.openingTime" class="form-control" id="openingTime" name="openingTime" required type="time">
+                        <input [(ngModel)]="selectedDealer.openingTime" class="form-control" id="openingTime"
+                               name="openingTime" required type="time">
                     </div>
                 </div>
                 <div class="col">
                     <div class="mb-3">
                         <label class="form-label" for="closingTime">Schließt um</label>
-                        <input [(ngModel)]="selectedDealer.closingTime" class="form-control" id="closingTime" name="closingTime" required type="time">
+                        <input [(ngModel)]="selectedDealer.closingTime" class="form-control" id="closingTime"
+                               name="closingTime" required type="time">
                     </div>
                 </div>
             </div>

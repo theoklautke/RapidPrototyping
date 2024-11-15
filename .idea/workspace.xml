@@ -6,8 +6,87 @@
   <component name="ChangeListManager">
     <list default="true" id="04deca10-5643-49f2-a994-8cb9025ce23c" name="Changes" comment="Added validation in dealer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/eslint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/jest.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/jest.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/jest.preset.js" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/jest.preset.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/nx.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/nx.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/eslint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/jest.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/jest.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/app.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment-detail-view/appointment-detail-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/appointment.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/auth.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/calendar/calendar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/calendar/calendar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/calendar/calendar.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/calendar/calendar.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/calendar/calendar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/calendar/calendar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer-detail-view/dealer-detail-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer-detail-view/dealer-detail-view.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer-detail-view/dealer-detail-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer-detail-view/dealer-detail-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/dealer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/navbar/navbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/app/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/app/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/src/test-setup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/src/test-setup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/tsconfig.editor.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/tsconfig.editor.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/client/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/client/tsconfig.spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/interfaces/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/interfaces/eslint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/interfaces/jest.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/interfaces/jest.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/interfaces/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/interfaces/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/interfaces/src/lib/interfaces.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/interfaces/tsconfig.lib.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/interfaces/tsconfig.lib.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/interfaces/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/interfaces/tsconfig.spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service-e2e/jest.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service-e2e/jest.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service-e2e/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service-e2e/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service-e2e/src/service/service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service-e2e/src/service/service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service-e2e/src/support/global-setup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service-e2e/src/support/global-setup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service-e2e/src/support/global-teardown.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service-e2e/src/support/global-teardown.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service-e2e/src/support/test-setup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service-e2e/src/support/test-setup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service-e2e/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service-e2e/tsconfig.spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/jest.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/jest.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.entity.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.entity.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.seeder.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.seeder.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.seeder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.seeder.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/appointment/appointment.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/dealer/dealer.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/dealer/dealer.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/dealer/dealer.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/dealer/dealer.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/dealer/dealer.seeder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/dealer/dealer.seeder.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/dealer/dealer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/dealer/dealer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.seeder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.seeder.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/app/user/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/tsconfig.spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/service/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/service/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/shared/eslint.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/shared/eslint.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/shared/jest.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/shared/jest.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/shared/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/shared/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.ts" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/shared/src/lib/shared.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/shared/tsconfig.lib.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/shared/tsconfig.lib.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/packages/shared/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/packages/shared/tsconfig.spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appointment-app/tsconfig.base.json" beforeDir="false" afterPath="$PROJECT_DIR$/appointment-app/tsconfig.base.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,13 +107,14 @@
     &quot;assignee&quot;: &quot;theoklautke&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/theoklautke/RapidPrototyping.git&quot;,
-    &quot;accountId&quot;: &quot;0f4694c3-7f0d-45f3-91bb-f4ceba8dd9b0&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/theoklautke/RapidPrototyping.git",
+    "accountId": "c864c5cd-e65f-45dd-9bc2-0026b422b910"
   }
-}</component>
+}]]></component>
   <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/appointment-app/package.json" />
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectColorInfo">{
@@ -59,7 +139,7 @@
     "Jest.shared.spec.ts.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "theo",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/robin/Desktop/Projekt Rapid Prototyping",
     "node.js.detected.package.eslint": "true",
@@ -74,7 +154,7 @@
     "npm.start:api.executor": "Run",
     "npm.start:ui.executor": "Run",
     "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "/Users/theoklautke/Development/Rapid-Prototyping-HdM-Stuttgart/appointment-app/node_modules/typescript/lib",
+    "ts.external.directory.path": "C:\\Users\\rh-es\\rapidPrototyping\\RapidPrototyping\\appointment-app\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -105,7 +185,7 @@
       <recent name="$PROJECT_DIR$/appointment-app/packages/service/src/app/auth" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start:api">
+  <component name="RunManager" selected="npm.start:ui">
     <configuration name="AppointmentEntity" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/appointment-app/node_modules/jest" />
@@ -178,8 +258,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start:api" />
         <item itemvalue="npm.start:ui" />
+        <item itemvalue="npm.start:api" />
         <item itemvalue="Jest.AppointmentSeeder" />
         <item itemvalue="Jest.AppointmentEntity" />
         <item itemvalue="Jest.AppointmentService" />
@@ -214,6 +294,7 @@
       <workItem from="1729175728061" duration="6717000" />
       <workItem from="1731153615531" duration="503000" />
       <workItem from="1731154171144" duration="8644000" />
+      <workItem from="1731668280199" duration="766000" />
     </task>
     <task id="LOCAL-00001" summary="Basic Setup">
       <option name="closed" value="true" />
@@ -410,5 +491,16 @@
     <MESSAGE value="Fixed bug" />
     <MESSAGE value="Added validation in dealer" />
     <option name="LAST_COMMIT_MESSAGE" value="Added validation in dealer" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/appointment-app/packages/client/src/app/calendar/calendar.component.ts</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

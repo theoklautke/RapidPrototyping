@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AppointmentService } from "../appointment.service";
-import { Appointment, Dealer, User } from "interfaces";
-import { NgbInputDatepicker, NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { FormsModule } from "@angular/forms";
-import { UserService } from "../user.service";
-import { AuthService } from "../auth.service";
-import { isInOpeningTime, isNotEmpty, isValidVehicleRegNo } from "shared";
-import { DealerService } from "../dealer.service";
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {AppointmentService} from "../appointment.service";
+import {Appointment, Dealer, User} from "interfaces";
+import {NgbInputDatepicker, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {FormsModule} from "@angular/forms";
+import {UserService} from "../user.service";
+import {AuthService} from "../auth.service";
+import {isInOpeningTime, isNotEmpty, isValidVehicleRegNo} from "shared";
+import {DealerService} from "../dealer.service";
 
 @Component({
     selector: 'app-appointment-detail-view',
@@ -46,7 +46,8 @@ export class AppointmentDetailViewComponent implements OnInit {
         private readonly userService: UserService,
         private readonly modalService: NgbModal,
         private readonly dealerService: DealerService,
-        protected readonly authService: AuthService) { }
+        protected readonly authService: AuthService) {
+    }
 
     /**
      * Initializes the component by fetching appointments, users, and dealers.
@@ -92,7 +93,7 @@ export class AppointmentDetailViewComponent implements OnInit {
      * @param appointment - The appointment to be edited.
      */
     public openEditModalAppointment(modal: any, appointment: Appointment) {
-        this.selectedAppointment = { ...appointment };
+        this.selectedAppointment = {...appointment};
         this.updateOpeningHours();
         this.modalService.open(modal);
     }
@@ -216,12 +217,12 @@ export class AppointmentDetailViewComponent implements OnInit {
 
                 const index = this.appointmentList.findIndex(app => app.id === updatedAppointment.id);
                 if (index !== -1) {
-                    this.appointmentList[index] = { ...updatedAppointment };
+                    this.appointmentList[index] = {...updatedAppointment};
                 }
 
                 const filteredIndex = this.filteredAppointments.findIndex(app => app.id === updatedAppointment.id);
                 if (filteredIndex !== -1) {
-                    this.filteredAppointments[filteredIndex] = { ...updatedAppointment };
+                    this.filteredAppointments[filteredIndex] = {...updatedAppointment};
                 }
 
                 this.showToast('Appointment updated successfully');
@@ -238,29 +239,10 @@ export class AppointmentDetailViewComponent implements OnInit {
     }
 
     /**
-     * Filters the list of appointments to only include those belonging to the current user.
-     */
-    private filterAppointments(): void {
-        const userEmail = this.authService.getMailFromJWT();
-        this.filteredAppointments = this.appointmentList.filter(appointment => {
-            return appointment.vehicleOwner.email === userEmail;
-        });
-    }
-
-    /**
      * Closes the currently visible toast message.
      */
     public closeToast(): void {
         this.toastMessage = null;
-    }
-
-    /**
-     * Displays a toast message and hides it after 5 seconds.
-     * @param message - The message to display in the toast.
-     */
-    private showToast(message: string): void {
-        this.toastMessage = message;
-        setTimeout(() => this.closeToast(), 5000);
     }
 
     /**
@@ -303,5 +285,24 @@ export class AppointmentDetailViewComponent implements OnInit {
         this.dealerOpeningHours = selectedDealer
             ? `Öffnungszeiten: ${selectedDealer.openingTime} - ${selectedDealer.closingTime}`
             : 'Öffnungszeiten nicht verfügbar';
+    }
+
+    /**
+     * Filters the list of appointments to only include those belonging to the current user.
+     */
+    private filterAppointments(): void {
+        const userEmail = this.authService.getMailFromJWT();
+        this.filteredAppointments = this.appointmentList.filter(appointment => {
+            return appointment.vehicleOwner.email === userEmail;
+        });
+    }
+
+    /**
+     * Displays a toast message and hides it after 5 seconds.
+     * @param message - The message to display in the toast.
+     */
+    private showToast(message: string): void {
+        this.toastMessage = message;
+        setTimeout(() => this.closeToast(), 5000);
     }
 }

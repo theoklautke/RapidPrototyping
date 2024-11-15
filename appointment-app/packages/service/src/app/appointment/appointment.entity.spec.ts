@@ -1,5 +1,5 @@
-import { AppointmentEntity } from './appointment.entity';
-import { UserEntity } from '../user/user.entity';
+import {AppointmentEntity} from './appointment.entity';
+import {UserEntity} from '../user/user.entity';
 
 describe('AppointmentEntity', () => {
     let appointment: AppointmentEntity;

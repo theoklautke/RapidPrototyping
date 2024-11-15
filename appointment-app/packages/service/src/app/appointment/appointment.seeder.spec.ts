@@ -1,9 +1,9 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { AppointmentSeeder } from './appointment.seeder';
-import { Repository } from 'typeorm';
-import { AppointmentEntity } from './appointment.entity';
-import { UserEntity } from '../user/user.entity';
-import { getRepositoryToken } from '@nestjs/typeorm';
+import {Test, TestingModule} from '@nestjs/testing';
+import {AppointmentSeeder} from './appointment.seeder';
+import {Repository} from 'typeorm';
+import {AppointmentEntity} from './appointment.entity';
+import {UserEntity} from '../user/user.entity';
+import {getRepositoryToken} from '@nestjs/typeorm';
 
 describe('AppointmentSeeder', () => {
     let seeder: AppointmentSeeder;
@@ -33,9 +33,9 @@ describe('AppointmentSeeder', () => {
     it('should seed appointments if none exist', async () => {
         appointmentRepository.count = jest.fn().mockResolvedValue(0);
         userRepository.find = jest.fn().mockResolvedValue([
-            { email: 'john.doe@example.com' } as UserEntity,
-            { email: 'alice.smith@example.com' } as UserEntity,
-            { email: 'bob.brown@example.com' } as UserEntity,
+            {email: 'john.doe@example.com'} as UserEntity,
+            {email: 'alice.smith@example.com'} as UserEntity,
+            {email: 'bob.brown@example.com'} as UserEntity,
         ]);
         appointmentRepository.save = jest.fn().mockResolvedValue([]);
 
@@ -44,9 +44,9 @@ describe('AppointmentSeeder', () => {
         expect(appointmentRepository.count).toHaveBeenCalled();
         expect(userRepository.find).toHaveBeenCalled();
         expect(appointmentRepository.save).toHaveBeenCalledWith(expect.arrayContaining([
-            expect.objectContaining({ assignment: 'Oil Change' }),
-            expect.objectContaining({ assignment: 'Tire Change' }),
-            expect.objectContaining({ assignment: 'Inspection' }),
+            expect.objectContaining({assignment: 'Oil Change'}),
+            expect.objectContaining({assignment: 'Tire Change'}),
+            expect.objectContaining({assignment: 'Inspection'}),
         ]));
     });
 });

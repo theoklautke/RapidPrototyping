@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Dealer } from 'interfaces';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Dealer} from 'interfaces';
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +10,8 @@ export class DealerService {
 
     private apiUrl = 'http://localhost:3000/api/dealer';
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+    }
 
     /**
      * Retrieves all dealers from the backend.

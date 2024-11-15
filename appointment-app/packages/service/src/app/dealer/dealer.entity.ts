@@ -1,5 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { Dealer } from "interfaces";
+import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Dealer} from "interfaces";
 
 /**
  * Represents a dealer entity in the database.
@@ -21,41 +21,41 @@ export class DealerEntity implements Dealer {
      * The city where the dealer is located.
      * For example, this could be 'Berlin' or 'Munich'.
      */
-    @Column({ name: 'city' })
+    @Column({name: 'city'})
     city: string;
 
     /**
      * The postal code (PLZ) of the dealer location.
      * This is typically a number, for example, 10115 for Berlin.
      */
-    @Column({ name: 'postalcode' })
+    @Column({name: 'postalcode'})
     postalCode: number;
 
     /**
      * The street where the dealer is located.
      * For example, 'Unter den Linden'.
      */
-    @Column({ name: 'street' })
+    @Column({name: 'street'})
     street: string;
 
     /**
      * The house number of the dealer location.
      * For example, '15' or '27B'.
      */
-    @Column({ name: 'housenumber' })
+    @Column({name: 'housenumber'})
     houseNumber: number;
 
     /**
      * The opening time of the dealer in 24-hour format.
      * For example, '08:00' for 8 AM.
      */
-    @Column({ name: 'openingtime' })
+    @Column({name: 'openingtime'})
     openingTime: string;
 
     /**
      * The closing time of the dealer in 24-hour format.
      * For example, '18:00' for 6 PM.
      */
-    @Column({ name: 'closingtime' })
+    @Column({name: 'closingtime'})
     closingTime: string;
 }

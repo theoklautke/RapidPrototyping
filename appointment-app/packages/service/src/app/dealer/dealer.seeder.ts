@@ -1,14 +1,15 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { DealerEntity } from './dealer.entity';
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import {Repository} from 'typeorm';
+import {DealerEntity} from './dealer.entity';
 
 @Injectable()
 export class DealerSeeder {
     constructor(
         @InjectRepository(DealerEntity)
         private dealerRepository: Repository<DealerEntity>,
-    ) {}
+    ) {
+    }
 
     /**
      * Seeds the dealer data into the database if it is empty.

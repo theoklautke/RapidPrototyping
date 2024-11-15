@@ -1,14 +1,15 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { UserEntity } from './user.entity';
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import {Repository} from 'typeorm';
+import {UserEntity} from './user.entity';
 
 @Injectable()
 export class UserSeeder {
     constructor(
         @InjectRepository(UserEntity)
         private userRepository: Repository<UserEntity>,
-    ) {}
+    ) {
+    }
 
     /**
      * Seeds the user data into the database if it is empty.

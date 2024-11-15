@@ -1,15 +1,16 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { DealerEntity } from './dealer.entity';
-import { Dealer } from 'interfaces';
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import {Repository} from 'typeorm';
+import {DealerEntity} from './dealer.entity';
+import {Dealer} from 'interfaces';
 
 @Injectable()
 export class DealerService {
     constructor(
         @InjectRepository(DealerEntity)
         private dealerRepository: Repository<DealerEntity>,
-    ) {}
+    ) {
+    }
 
     /**
      * Retrieves all dealers from the database.
@@ -37,7 +38,7 @@ export class DealerService {
      */
     public async updateDealer(id: number, dealerData: Dealer): Promise<Dealer> {
         await this.dealerRepository.update(id, dealerData);
-        return this.dealerRepository.findOne({ where: { id } });
+        return this.dealerRepository.findOne({where: {id}});
     }
 
     /**

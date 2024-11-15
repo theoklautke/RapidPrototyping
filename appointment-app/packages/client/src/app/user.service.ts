@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { User } from 'interfaces';  // Stelle sicher, dass der User-Typ korrekt importiert wird
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {User} from 'interfaces'; // Stelle sicher, dass der User-Typ korrekt importiert wird
 
 @Injectable({
     providedIn: 'root',
@@ -9,7 +9,8 @@ import { User } from 'interfaces';  // Stelle sicher, dass der User-Typ korrekt 
 export class UserService {
     private apiUrl = 'http://localhost:3000/api/user'; // Der Endpunkt für Benutzer im Backend
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {
+    }
 
     /**
      * Retrieves all users from the backend.

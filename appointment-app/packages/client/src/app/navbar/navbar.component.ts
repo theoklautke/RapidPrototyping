@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component} from "@angular/core";
 import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {NgbInputDatepicker} from "@ng-bootstrap/ng-bootstrap";
 import {RouterLink, RouterLinkActive} from "@angular/router";
@@ -12,5 +12,6 @@ import {AuthService} from "../auth.service";
     styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-    constructor(protected readonly authService: AuthService) {}
+    constructor(protected readonly authService: AuthService) {
+    }
 }

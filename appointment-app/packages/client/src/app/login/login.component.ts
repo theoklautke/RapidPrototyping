@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../auth.service';
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
-import {isValidEmail, isNotEmpty, isValidPassword} from "shared";
+import {isNotEmpty, isValidEmail, isValidPassword} from "shared";
 
 @Component({
     selector: 'app-login',
@@ -25,7 +25,8 @@ export class LoginComponent {
     errorMessageFirstname = '';
     isRegister = false;
 
-    constructor(private authService: AuthService, private router: Router) {}
+    constructor(private authService: AuthService, private router: Router) {
+    }
 
     onLogin() {
         this.authService.login(this.email, this.password).subscribe({
