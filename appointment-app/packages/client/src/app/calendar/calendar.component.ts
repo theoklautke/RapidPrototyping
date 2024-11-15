@@ -229,11 +229,9 @@ export class CalendarComponent implements OnInit {
                         && isNotEmpty(this.newAppointment.assignment) && isValidVehicleRegNo(this.newAppointment.vehicleRegNo)
                         && isInOpeningTime(selectedDealer.openingTime, selectedDealer.closingTime, this.newAppointment.time)) {
 
-                        console.log('PENIS')
                         this.appointmentService.createAppointment(this.newAppointment).subscribe({
                             next: () => {
-                                console.log('Neuer Termin wurde erfolgreich erstellt.');
-                                console.log(this.newAppointment?.id)
+
                                 this.refreshCalendar();
                                 this.closeAllModals();
                             },
@@ -255,7 +253,7 @@ export class CalendarComponent implements OnInit {
 
     editAppointment(): void {
         if (this.selectedEvent && this.selectedEvent.id) {
-            console.log('Bearbeiten-Button geklickt:', this.selectedEvent);
+
             this.openModal('editAppointmentModal');
         } else {
             console.warn('Es wurde kein gültiger Termin zum Bearbeiten ausgewählt.');
@@ -306,7 +304,6 @@ export class CalendarComponent implements OnInit {
 
                 this.appointmentService.updateAppointment(updatedData.id, updatedData).subscribe({
                     next: () => {
-                        console.log('Termin wurde erfolgreich aktualisiert.');
                         this.refreshCalendar();
                         this.closeAllModals();
                         this.selectedEvent = {};
@@ -325,7 +322,6 @@ export class CalendarComponent implements OnInit {
         if (this.selectedEvent && this.selectedEvent.id) {
             this.appointmentService.deleteAppointment(this.selectedEvent.id).subscribe({
                 next: () => {
-                    console.log('Termin wurde erfolgreich gelöscht.');
                     this.refreshCalendar();
                     this.closeAllModals();
                     this.selectedEvent = {};
@@ -402,8 +398,7 @@ export class CalendarComponent implements OnInit {
                 },
             }));
 
-            // Debug-Log der Events, bevor sie dem Kalender hinzugefügt werden
-            console.log('Events vor dem Setzen im Kalender:', events);
+
 
             // Aktualisiere die Kalender-Events
             if (this.calendarOptions) {
@@ -412,7 +407,6 @@ export class CalendarComponent implements OnInit {
                     events: events,  // Setze die neuen Events basierend auf der gefilterten Liste
                     eventClick: this.handleEventClick.bind(this), // Binde den Event-Click-Handler neu
                 };
-                console.log('Kalenderoptionen nach Aktualisierung:', this.calendarOptions);
                 this.cdr.detectChanges();
             }
         });
